@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+
 const GlobalStyle = createGlobalStyle`
     ${reset}
     a{
@@ -14,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
         margin: 0;
         padding: 0;
         border: 0;
-        font-size: 10px;
+        font-size: 20px;
         vertical-align: baseline;
     }
     body{
