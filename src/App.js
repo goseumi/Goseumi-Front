@@ -5,7 +5,7 @@ import GlobalStyle from './style/GlobalStyle';
 
 const S = {
   Frame: styled.div`
-    max-width: 400px;
+    max-width: 428px;
     height: 100vh;
     display: flex;
     position: relative;
@@ -25,7 +25,7 @@ const S = {
   `,
   Test: styled.div`
     //테스트코드
-    max-width: 400px;
+    max-width: 428px;
     height: 100vh;
     border: 1px solid red;
     background: #ffffff;
