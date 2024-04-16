@@ -7,12 +7,11 @@ const S = {
   Frame: styled.div`
     max-width: 428px;
     height: 100vh;
-    display: flex;
     position: relative;
     margin: 0 auto;
     background-color: #ffffff;
     box-shadow: -5px -5px 30px 5px black;
-    flex-direction: column;
+    overflow: auto;
   `,
 
   Background: styled.div`
