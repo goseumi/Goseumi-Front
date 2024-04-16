@@ -39,9 +39,7 @@ function App() {
     <>
       <GlobalStyle />
       <S.Background />
-      <S.Frame>
-        <S.Test></S.Test>
-      </S.Frame>
+      <S.Frame></S.Frame>
     </>
   );
 }
