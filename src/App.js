@@ -10,7 +10,7 @@ const S = {
     display: flex;
     position: relative;
     margin: 0 auto;
-    background-color: #a7968e;
+    background-color: #ffffff;
     box-shadow: -5px -5px 30px 5px black;
     flex-direction: column;
   `,
