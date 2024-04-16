@@ -39,7 +39,9 @@ function App() {
     <>
       <GlobalStyle />
       <S.Background />
-      <S.Frame></S.Frame>
+      <S.Frame>
+        <S.Test>ff</S.Test>
+      </S.Frame>
     </>
   );
 }
