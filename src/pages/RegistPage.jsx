@@ -8,24 +8,21 @@ const s = {
     max-width: 428px;
     height: 100vh;
     overflow: auto;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   `,
 };
 
 const RegistPage = () => {
-  const handleRegister = () => {};
-
-  const Info = {
-    email: '',
-    password: '',
-    phone: '',
-    passwordCheck: '',
-    nickname: '',
+  const handleRegister = (data) => {
+    console.log(data);
   };
 
   return (
     <>
       <s.Frame>
-        <FormHeader />
+        <FormHeader type="regist" />
         <Form type="regist" onSubmit={handleRegister} />
       </s.Frame>
     </>
