@@ -31,14 +31,22 @@ const s = {
   `,
 };
 
-const FormHeader = () => {
+const FormHeader = ({ type }) => {
   return (
     <>
       <s.Header>
         <s.pre>
           <s.preImg src={preImg}></s.preImg>
         </s.pre>
-        <s.title>회원가입</s.title>
+        <s.title>
+          {type === 'regist'
+            ? '회원가입'
+            : type === 'find'
+            ? '비밀번호 발급'
+            : type === 'PwChange'
+            ? '비밀번호 변경'
+            : ''}
+        </s.title>
         <s.pre2 />
       </s.Header>
     </>
