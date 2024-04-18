@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import FormButton from './FormButton';
 
 const s = {
   // form
-  form: styled.form`
+  form: styled.div`
     width: 100%;
     padding: 0 20px;
   `,
@@ -19,19 +20,51 @@ const s = {
     display: block;
     margin: 30px 0 5px;
   `,
-
-  join: styled.button`
-    display: block;
-    width: 100%;
-    height: 50px;
-    color: white;
-    background-color: #a7968e;
-    border-radius: 8px;
-    margin: 30px 0 20px;
-  `,
 };
 
 const Form = ({ type, onSubmit }) => {
+  const [data, setData] = useState({
+    email: '',
+    password: '',
+    phone: '',
+    passwordCheck: '',
+    nickname: '',
+  });
+  const [OnOff, setOnOff] = useState(false);
+
+  useEffect(() => {
+    btnOnOff();
+  }, [data]);
+
+  const InputChange = (e) => {
+    setData({
+      ...data,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const btnOnOff = () => {
+    if (type === 'regist') {
+      if (
+        !!data.nickname &&
+        !!data.email &&
+        !!data.phone &&
+        data.password.length > 5 &&
+        data.passwordCheck.length > 5
+      ) {
+        setOnOff(true);
+      } else {
+        setOnOff(false);
+      }
+    }
+  };
+
+  const btnSumit = async (e) => {
+    if (OnOff) {
+      onSubmit(data);
+    }
+  };
+
   return (
     <>
       <s.form>
@@ -40,9 +73,11 @@ const Form = ({ type, onSubmit }) => {
             <s.lable for="nick">닉네임</s.lable>
             <s.input
               id="nick"
-              name="nick"
+              name="nickname"
+              value={data.nickname}
               type="text"
               placeholder="닉네임을 입력해주세요"
+              onChange={InputChange}
             />
           </>
         )}
@@ -53,8 +88,10 @@ const Form = ({ type, onSubmit }) => {
             <s.input
               id="email"
               name="email"
+              value={data.email}
               type="email"
               placeholder="이메일을 입력해주세요"
+              onChange={InputChange}
             />
           </>
         )}
@@ -64,9 +101,11 @@ const Form = ({ type, onSubmit }) => {
             <s.lable for="tel">전화번호</s.lable>
             <s.input
               id="tel"
-              name="tel"
+              name="phone"
+              value={data.phone}
               type="text"
               placeholder="전화번호를 입력해주세요"
+              onChange={InputChange}
             />
           </>
         )}
@@ -76,9 +115,11 @@ const Form = ({ type, onSubmit }) => {
             <s.lable for="pw">비밀번호</s.lable>
             <s.input
               id="pw"
-              name="pw"
+              name="password"
+              value={data.password}
               type="password"
               placeholder="비밀번호를 입력해주세요"
+              onChange={InputChange}
             />
           </>
         )}
@@ -88,24 +129,15 @@ const Form = ({ type, onSubmit }) => {
             <s.lable for="check">비밀번호 확인</s.lable>
             <s.input
               id="check"
-              name="check"
+              name="passwordCheck"
+              value={data.passwordCheck}
               type="password"
               placeholder="비밀번호를 다시 입력해주세요"
+              onChange={InputChange}
             />
           </>
         )}
-
-        <s.join>
-          {type === 'regist'
-            ? '회원가입'
-            : type === 'login'
-            ? '로그인'
-            : type === 'find'
-            ? '임시 비밀번호 발송'
-            : type === 'PwChange'
-            ? '비밀번호 변경'
-            : ''}
-        </s.join>
+        <FormButton type="regist" active={OnOff} onClick={btnSumit} />
       </s.form>
     </>
   );
