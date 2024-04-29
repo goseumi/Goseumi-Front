@@ -20,6 +20,10 @@ const s = {
     display: block;
     margin: 30px 0 5px;
   `,
+  warning: styled.span`
+    color: red;
+    font-size: 13px;
+  `,
 };
 
 const Form = ({ type, onSubmit }) => {
@@ -30,6 +34,11 @@ const Form = ({ type, onSubmit }) => {
     passwordCheck: '',
     nickname: '',
   });
+  const [nick, setNick] = useState('한글,영문,숫자 포함 2~12자이어야 합니다.');
+  const [pw, setPw] = useState('영문,숫자,특수문자 포함 6~16자이어야 합니다.');
+  const [pw2, setPw2] = useState('비밀번호가 일치하지 않습니다.');
+  const [tel, setTel] = useState('8자 이상 11자 이하의 숫자만 입력해주세요.');
+  const [email, setEmail] = useState('이메일은 비어있을 수 없습니다.');
   const [OnOff, setOnOff] = useState(false);
 
   useEffect(() => {
@@ -44,14 +53,61 @@ const Form = ({ type, onSubmit }) => {
   };
 
   const btnOnOff = () => {
+    const nicknamePattern = /^[a-zA-Z0-9가-힣]{2,12}$/;
+    const phonePattern = /^\d{8,11}$/;
+    const passwordPattern =
+      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()\-_=+\\|[\]{};:'",.<>?/]).{6,16}$/;
+    const emailPattern = /^[^ㄱ-ㅎㅏ-ㅣ가-힣]+@[a-zA-Z0-9.]+\.[A-Za-z]+$/;
+
     if (type === 'regist') {
-      if (
-        !!data.nickname &&
-        !!data.email &&
-        !!data.phone &&
-        data.password.length > 5 &&
-        data.passwordCheck.length > 5
-      ) {
+      let flag = true;
+      // if (
+      //   !!data.nickname &&
+      //   !!data.email &&
+      //   !!data.phone &&
+      //   data.password.length > 5 &&
+      //   data.passwordCheck.length > 5
+      // ) {
+      //   setOnOff(true);
+      // } else {
+      //   setOnOff(false);
+      // }
+      if (nicknamePattern.test(data.nickname)) {
+        //닉네임 검사
+        setNick('');
+      } else {
+        setNick('한글,영문,숫자 포함 2~12자이어야 합니다.');
+        flag = false;
+      }
+      if (phonePattern.test(data.phone)) {
+        //번호 검사
+        setTel('');
+      } else {
+        setTel('8자 이상 11자 이하의 숫자만 입력해주세요.');
+        flag = false;
+      }
+      if (passwordPattern.test(data.password)) {
+        //비밀번호 검사
+        setPw('');
+      } else {
+        setPw('영문,숫자,특수문자 포함 6~16자이어야 합니다.');
+        flag = false;
+      }
+      if (data.password === data.passwordCheck) {
+        //비밀번호 체크 검사
+        setPw2('');
+      } else {
+        setPw2('비밀번호가 일치하지 않습니다.');
+        flag = false;
+      }
+      if (emailPattern.test(data.email)) {
+        //이메일검사
+        setEmail('');
+      } else {
+        setEmail('이메일은 비어있을 수 없습니다.');
+        flag = false;
+      }
+      if (flag) {
         setOnOff(true);
       } else {
         setOnOff(false);
@@ -70,7 +126,9 @@ const Form = ({ type, onSubmit }) => {
       <s.form>
         {['regist'].includes(type) && (
           <>
-            <s.lable for="nick">닉네임</s.lable>
+            <s.lable for="nick">
+              닉네임 <s.warning>{nick}</s.warning>
+            </s.lable>
             <s.input
               id="nick"
               name="nickname"
@@ -84,7 +142,9 @@ const Form = ({ type, onSubmit }) => {
 
         {['regist'].includes(type) && (
           <>
-            <s.lable for="email">이메일</s.lable>
+            <s.lable for="email">
+              이메일 <s.warning>{email}</s.warning>
+            </s.lable>
             <s.input
               id="email"
               name="email"
@@ -98,7 +158,9 @@ const Form = ({ type, onSubmit }) => {
 
         {['regist'].includes(type) && (
           <>
-            <s.lable for="tel">전화번호</s.lable>
+            <s.lable for="tel">
+              전화번호 <s.warning>{tel}</s.warning>
+            </s.lable>
             <s.input
               id="tel"
               name="phone"
@@ -112,7 +174,9 @@ const Form = ({ type, onSubmit }) => {
 
         {['regist'].includes(type) && (
           <>
-            <s.lable for="pw">비밀번호</s.lable>
+            <s.lable for="pw">
+              비밀번호 <s.warning>{pw}</s.warning>
+            </s.lable>
             <s.input
               id="pw"
               name="password"
@@ -126,7 +190,9 @@ const Form = ({ type, onSubmit }) => {
 
         {['regist'].includes(type) && (
           <>
-            <s.lable for="check">비밀번호 확인</s.lable>
+            <s.lable for="check">
+              비밀번호 확인 <s.warning>{pw2}</s.warning>
+            </s.lable>
             <s.input
               id="check"
               name="passwordCheck"
