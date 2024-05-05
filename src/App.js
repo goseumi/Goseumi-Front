@@ -2,7 +2,6 @@ import React from 'react';
 import { styled } from 'styled-components';
 import './App.css';
 import GlobalStyle from './style/GlobalStyle';
-import RegistPage from './pages/RegistPage';
 
 const S = {
   Frame: styled.div`
@@ -39,9 +38,7 @@ function App() {
     <>
       <GlobalStyle />
       <S.Background />
-      <S.Frame>
-        <RegistPage />
-      </S.Frame>
+      <S.Frame></S.Frame>
     </>
   );
 }
