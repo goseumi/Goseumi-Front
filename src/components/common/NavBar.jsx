@@ -7,17 +7,23 @@ import {ReactComponent as Nav4} from "../../assets/img/bottomNav-4.svg";
 import {ReactComponent as Nav5} from "../../assets/img/bottomNav-5.svg";
 
 
-const NavContainer = styled.div`
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
 
+const NavContainer = styled.div`
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 428px;
+    display: flex;
+    justify-content: center;    
+    border-top: 1px solid #F0F0F0;
+    background-color: white;
+    
 `;
 
-const Tap = styled.div`
+const Tab = styled.div`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center;    
     align-items: center;
     width: 20%;
     height: 94px;
@@ -26,16 +32,15 @@ const Tap = styled.div`
     font-size: 14px;
     font-weight: 500;
     color: #A6A6A6;
-    border-top: 1px solid #F0F0F0;
 
 `;
 
 function Nav({ icon: Icon, text }) {
     return (
-        <Tap>
+        <Tab>
             <Icon width={24} height={24} fill="none" />
             {text}
-        </Tap>
+        </Tab>
     );
 }
 

@@ -5,7 +5,7 @@ import GlobalStyle from './style/GlobalStyle';
 import './pages/LoginPage';
 import LoginPage from './pages/LoginPage';
 import SplashPage from './pages/SplashPage';
-import MainPage from './pages/MainPage';
+
 
 const S = {
   Frame: styled.div`
@@ -43,7 +43,7 @@ function App() {
       <GlobalStyle />
       <S.Background />
       <S.Frame>
-        <MainPage />
+        <LoginPage />
       </S.Frame>
     </>
   );
