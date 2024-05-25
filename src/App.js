@@ -6,6 +6,7 @@ import './pages/LoginPage';
 import LoginPage from './pages/LoginPage';
 import SplashPage from './pages/SplashPage';
 
+
 const S = {
   Frame: styled.div`
     max-width: 428px;
