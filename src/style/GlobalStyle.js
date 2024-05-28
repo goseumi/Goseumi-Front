@@ -38,6 +38,9 @@ const GlobalStyle = createGlobalStyle`
         background: transparent;
         cursor: pointer;
     }
+    ::-webkit-scrollbar{
+      display: none;
+    }
     
 `;
 
