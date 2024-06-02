@@ -3,6 +3,7 @@ import axios from 'axios';
 export const localAxios = () => {
   const instance = axios.create({
     baseURL: '',
+    withCredentials: true,
   });
 
   instance.defaults.headers.common['Authorization'] = '';
@@ -15,6 +16,7 @@ export const registAxios = () => {
   //api단이 빠짐
   const instance = axios.create({
     baseURL: '',
+    withCredentials: true,
   });
 
   instance.defaults.headers.common['Authorization'] = '';
