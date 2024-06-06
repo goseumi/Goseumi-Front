@@ -1,10 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
-import preImg from '../../assets/img/Group 5.png';
+import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
 
 const s = {
   // header
+  fixedMenu: styled.div`
+    position: fixed;
+    width: 100%;
+    max-width: 428px;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+  `,
   Header: styled.header`
+    width: 100%;
     max-width: 428px;
     height: 60px;
     border-bottom: 1px solid #f0f0f0;
@@ -14,9 +23,10 @@ const s = {
   `,
 
   title: styled.div`
-    width: 70px;
+    width: 100px;
     height: 24px;
     margin: 0 15%;
+    text-align: center;
   `,
 
   pre: styled.div`
@@ -31,24 +41,34 @@ const s = {
   `,
 };
 
+function Icons({ icon: Icon }) {
+  return <Icon fill="none" />;
+}
+
 const FormHeader = ({ type }) => {
   return (
     <>
-      <s.Header>
-        <s.pre>
-          <s.preImg src={preImg}></s.preImg>
-        </s.pre>
-        <s.title>
-          {type === 'regist'
-            ? '회원가입'
-            : type === 'find'
-            ? '비밀번호 발급'
-            : type === 'PwChange'
-            ? '비밀번호 변경'
-            : ''}
-        </s.title>
-        <s.pre2 />
-      </s.Header>
+      <s.fixedMenu>
+        <s.Header>
+          <s.pre>
+            <Icons icon={icons1} />
+          </s.pre>
+          <s.title>
+            {type === 'regist'
+              ? '회원가입'
+              : type === 'find'
+              ? '비밀번호 발급'
+              : type === 'PwChange'
+              ? '비밀번호 변경'
+              : type === 'mypage'
+              ? '마이페이지'
+              : type === 'time'
+              ? '시간표'
+              : ''}
+          </s.title>
+          <s.pre2 />
+        </s.Header>
+      </s.fixedMenu>
     </>
   );
 };

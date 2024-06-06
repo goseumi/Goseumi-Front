@@ -5,13 +5,22 @@ import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
 
 const s = {
   // header
+  fixedMenu: styled.div`
+    position: fixed;
+    width: 100%;
+    max-width: 428px;
+    display: flex;
+    justify-content: center;
+  `,
   Header: styled.header`
     max-width: 428px;
+    width: 100%;
     height: 60px;
     border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #fff;
   `,
 
   title: styled.div`
@@ -39,15 +48,17 @@ function Icons({ icon: Icon }) {
 const Mheader = ({ text }) => {
   return (
     <>
-      <s.Header>
-        <s.pre>
-          <Icons icon={icons1} />
-        </s.pre>
-        <s.title>{text}</s.title>
-        <s.pre>
-          <Icons icon={icons2} />
-        </s.pre>
-      </s.Header>
+      <s.fixedMenu>
+        <s.Header>
+          <s.pre>
+            <Icons icon={icons1} />
+          </s.pre>
+          <s.title>{text}</s.title>
+          <s.pre>
+            <Icons icon={icons2} />
+          </s.pre>
+        </s.Header>
+      </s.fixedMenu>
     </>
   );
 };
