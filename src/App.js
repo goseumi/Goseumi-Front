@@ -95,6 +95,7 @@ function App() {
       <S.Background />
       <S.Frame>
         <TimeTablePage />
+        {/* <SplashPage /> */}
       </S.Frame>
     </>
   );
