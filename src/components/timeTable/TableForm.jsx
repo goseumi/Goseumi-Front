@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icon1 } from '../../assets/img/plus-square.svg';
+import TableModal from './TableModal';
 
 const s = {
   content: styled.div`
@@ -55,15 +56,21 @@ const s = {
     cursor: pointer;
   `,
 };
+
 const TableForm = () => {
+  const [open, setOpen] = useState(false);
   const hourData = Array.from({ length: 9 }, (i, j) => j + 9);
+
+  const handleModalOpen = () => {
+    setOpen(!open);
+  };
 
   return (
     <s.content>
       <s.tableLayout>
         <s.tableInfo>
           <s.title>2024학년 1학기</s.title>
-          <s.Icon icon={icon1} />
+          <s.Icon icon={icon1} onClick={handleModalOpen} />
         </s.tableInfo>
         <s.table>
           <s.thead>
@@ -90,6 +97,7 @@ const TableForm = () => {
           </s.tbody>
         </s.table>
       </s.tableLayout>
+      <TableModal open={open} />
     </s.content>
   );
 };
