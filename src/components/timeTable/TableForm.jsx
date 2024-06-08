@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icon1 } from '../../assets/img/plus-square.svg';
-import TableModal from './TableModal';
+import TableModal from '../modal/TableModal';
+import { useRecoilState } from 'recoil';
+import { timeSetAtom } from '../../lib/recoil/modalAtom';
+import GradeModal from '../modal/GradeModal';
 
 const s = {
   content: styled.div`
@@ -58,7 +61,7 @@ const s = {
 };
 
 const TableForm = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useRecoilState(timeSetAtom);
   const hourData = Array.from({ length: 9 }, (i, j) => j + 9);
 
   const handleModalOpen = () => {
@@ -97,7 +100,8 @@ const TableForm = () => {
           </s.tbody>
         </s.table>
       </s.tableLayout>
-      <TableModal open={open} />
+      <TableModal />
+      <GradeModal />
     </s.content>
   );
 };

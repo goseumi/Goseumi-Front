@@ -5,7 +5,7 @@ import FormHeader from '../components/common/FormHeader';
 import MyPageList from '../components/myPage/MyPageList';
 import NavBar from '../components/common/NavBar';
 import TableForm from '../components/timeTable/TableForm';
-import TestScore from '../components/timeTable/TestScore';
+import GradeForm from '../components/timeTable/GradeForm';
 
 const s = {
   Frame: styled.div`
@@ -28,7 +28,7 @@ const TimeTablePage = () => {
       <s.Frame>
         <FormHeader type="time" />
         <TableForm />
-        <TestScore />
+        <GradeForm />
         <NavBar />
       </s.Frame>
     </>
