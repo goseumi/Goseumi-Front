@@ -9,6 +9,8 @@ const s = {
     position: fixed;
     width: 100%;
     max-width: 428px;
+    border: 1px solid red;
+    background-color: #fff;
   `,
   Header: styled.header`
     max-width: 428px;
@@ -19,7 +21,6 @@ const s = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff;
   `,
 
   title: styled.div`
@@ -27,6 +28,7 @@ const s = {
     height: 24px;
     line-height: 24px;
     text-align: center;
+    font-weight: bold;
   `,
 
   pre: styled.div`
@@ -45,11 +47,12 @@ const s = {
     flex-direction: row;
     overflow-x: auto;
     white-space: nowrap;
+    margin: 0 auto 10px;
   `,
   gradeli: styled.div`
     width: 100px;
     border: 1px solid red;
-    margin: 0 10px;
+    margin-right: 10px;
     font-size: 15px;
     font-weight: bold;
     cursor: grab;
@@ -114,27 +117,9 @@ const ModalHeader = ({ text, setAtom }) => {
           </s.pre>
         </s.Header>
         <s.grade ref={scrollRef} onMouseDown={handleMouseDown}>
-          <s.gradeli
-            onClick={() => {
-              alert(1);
-            }}
-          >
-            1학년 1학기
-          </s.gradeli>
-          <s.gradeli
-            onClick={() => {
-              alert(1);
-            }}
-          >
-            1학년 2학기
-          </s.gradeli>
-          <s.gradeli
-            onClick={() => {
-              alert(1);
-            }}
-          >
-            2학년 1학기
-          </s.gradeli>
+          <s.gradeli>1학년 1학기</s.gradeli>
+          <s.gradeli>1학년 2학기</s.gradeli>
+          <s.gradeli>2학년 1학기</s.gradeli>
           <s.gradeli>2학년 2학기</s.gradeli>
           <s.gradeli>3학년 1학기</s.gradeli>
           <s.gradeli>3학년 2학기</s.gradeli>
