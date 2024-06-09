@@ -16,10 +16,6 @@ const s = {
 };
 
 const MyPage = () => {
-  const handleRegister = (data) => {
-    console.log(data);
-  };
-
   return (
     <>
       <s.Frame>
