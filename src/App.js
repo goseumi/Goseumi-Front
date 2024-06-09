@@ -42,7 +42,7 @@ function App() {
       <GlobalStyle />
       <S.Background />
       <S.Frame>
-        <LoginPage />
+        <LoginPage/>
       </S.Frame>
     </>
   );
