@@ -68,7 +68,7 @@ function MainPage() {
         </SiteContainer>
         <BoardContainer>
             <HalfBoard>
-            <SubTitle text="4월 중식"/>
+                <SubTitle text="4월 중식"/>
             </HalfBoard>
             <HalfBoard>
                 <SubTitle text="학사일정"/>

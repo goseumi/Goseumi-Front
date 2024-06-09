@@ -6,7 +6,6 @@ import './pages/LoginPage';
 import LoginPage from './pages/LoginPage';
 import SplashPage from './pages/SplashPage';
 
-
 const S = {
   Frame: styled.div`
     max-width: 428px;
@@ -43,7 +42,7 @@ function App() {
       <GlobalStyle />
       <S.Background />
       <S.Frame>
-        <LoginPage />
+        <LoginPage/>
       </S.Frame>
     </>
   );
