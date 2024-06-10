@@ -6,6 +6,7 @@ import MListBox from '../../components/message/MListBox';
 import MRead from '../../components/message/MRead';
 import MWrite from '../../components/message/MWrite';
 import NavBar from '../../components/common/NavBar';
+import { Outlet } from 'react-router-dom';
 
 const s = {
   Frame: styled.div`
@@ -29,8 +30,9 @@ const MessagePage = () => {
     <>
       <s.Frame>
         <Mheader text="쪽 지" />
+        <Outlet />
         {/* <MListBox /> */}
-        <MRead />
+        {/* <MRead /> */}
         {/* 위의 컴포넌트를 중첩라우팅 생각 */}
         <NavBar />
       </s.Frame>

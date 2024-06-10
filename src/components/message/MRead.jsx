@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import MList from './MList';
 import { Mdata } from './Mdata';
 import { Message } from './Message';
+import { useSearchParams } from 'react-router-dom';
 
 const s = {
   content: styled.div`
@@ -40,10 +41,15 @@ const s = {
 };
 
 const MRead = () => {
+  const [searchParam, setSearchParam] = useSearchParams();
+  const title = searchParam.get('title');
+  const page = searchParam.get('page');
+
+  console.log(title + ' ' + page);
   return (
     <s.content>
       {Message.map((data, index) => (
-        <s.message>
+        <s.message key={index}>
           <s.messageInfo>
             <s.messageWriter>{data.type}</s.messageWriter>
             <s.messageDate>{data.date}</s.messageDate>
