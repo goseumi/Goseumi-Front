@@ -9,6 +9,7 @@ const s = {
     width: 90%;
     border: 3px solid red;
     margin: 10px auto;
+    padding-top: 60px;
     flex: 1;
   `,
   sendText: styled.textarea`
