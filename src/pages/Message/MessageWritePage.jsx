@@ -21,10 +21,6 @@ const s = {
 };
 
 const MessageWritePage = () => {
-  const handleRegister = (data) => {
-    console.log(data);
-  };
-
   return (
     <>
       <s.Frame>
