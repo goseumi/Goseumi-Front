@@ -62,7 +62,12 @@ import MyPage from './pages/MyPage';
 import RegistPage from './pages/RegistPage';
 import TimeTablePage from './pages/TimeTablePage';
 import MessagePage from './pages/Message/MessagePage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import MessageWritePage from './pages/Message/MessageWritePage';
+import MListBox from './components/message/MListBox';
+import MRead from './components/message/MRead';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import BoardList from './pages/Board/BoardList';
+import BoardInput from './pages/Board/BoardInput';
 
 const S = {
   Frame: styled.div`
@@ -109,7 +114,13 @@ function App() {
             <Route path="/commu" element={<BoardPage />} />
             <Route path="/time" element={<TimeTablePage />} />
             <Route path="/mypage" element={<MyPage />} />
-            <Route path="/dm" element={<MessagePage />} />
+            <Route path="/dm" element={<MessagePage />}>
+              <Route path="/dm" element={<MListBox />} />
+              <Route path="Read" element={<MRead />} />
+            </Route>
+            <Route path="/dm/send" element={<MessageWritePage />} />
+            <Route path="/boardInput" element={<BoardList />} />
+            <Route path="/boardPage" element={<BoardInput />} />
           </Routes>
         </BrowserRouter>
       </S.Frame>
