@@ -25,9 +25,10 @@
 // }
 
 // export default SplashPage;
-import React from 'react';
+import React, { useEffect } from 'react';
 import { styled } from 'styled-components';
 import mainLogo from '../assets/img/mainLogo.png';
+import { useNavigate } from 'react-router-dom';
 
 const BgContainer = styled.div`
   display: flex;
@@ -44,6 +45,14 @@ const LogoImage = styled.img`
 `;
 
 function SplashPage() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/main');
+    }, 2000);
+  }, []);
+
   return (
     <>
       <BgContainer>
