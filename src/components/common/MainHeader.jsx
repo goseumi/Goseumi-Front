@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/icons-1.svg';
 import { ReactComponent as icons2 } from '../../assets/img/icons-2.svg';
 import { ReactComponent as icons3 } from '../../assets/img/icons-3.svg';
+import logo from '../../assets/img/mainLogo2.png';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
 
@@ -16,11 +17,15 @@ const MainHeaderContainer = styled.div`
 `;
 
 const Logo = styled.div`
-  width: 34px;
+  width: 150px;
   height: 34px;
-  border-radius: 50%;
-  background-color: #f0f0f0;
+  /* border-radius: 50%; */
+  /* background-color: #f0f0f0; */
   margin-left: 30px;
+  background-image: url(${logo});
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 `;
 
 const IconContainer = styled.div`
