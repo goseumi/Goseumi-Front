@@ -50,7 +50,7 @@ const FormHeader = ({ type }) => {
   //쿼리스트링으로 하면 좋을 듯?
   const navigate = useNavigate();
   const movePage = () => {
-    navigate('/');
+    navigate('/home');
   };
   return (
     <>

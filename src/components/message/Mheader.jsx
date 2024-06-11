@@ -57,7 +57,7 @@ const Mheader = ({ text }) => {
         <s.Header>
           <s.pre
             onClick={() => {
-              movePage('/');
+              movePage('/home');
             }}
           >
             <Icons icon={icons1} />
