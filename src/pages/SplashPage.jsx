@@ -39,19 +39,19 @@ const BgContainer = styled.div`
 `;
 
 const LogoImage = styled.img`
-  width: 90%;
+  width: 100%;
   position: absolute;
-  top: 100px;
+  top: 250px;
 `;
 
 function SplashPage() {
   const navigate = useNavigate();
 
-  useEffect(() => {
-    setTimeout(() => {
-      navigate('/main');
-    }, 2000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigate('/main');
+  //   }, 2000);
+  // }, []);
 
   return (
     <>
