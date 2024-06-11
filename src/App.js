@@ -135,6 +135,9 @@ function App() {
             </Route>
           </Routes>
         </BrowserRouter> */}
+        {/* 아래는 옛날방식인데 이러면 라우팅은 잘 되나, 로그인을 안했을 때와
+        토큰만료로 로그인을 다시해야하는 경우 로그인 페이지로 유도하지 못함
+        위의 방식을 어떻게든 수정해서 써야함 */}
         <BrowserRouter>
           <Routes>
             {checkLogin ? (
