@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const s = {
   // header
@@ -47,11 +47,16 @@ function Icons({ icon: Icon }) {
 }
 
 const FormHeader = ({ type }) => {
+  //쿼리스트링으로 하면 좋을 듯?
+  const navigate = useNavigate();
+  const movePage = () => {
+    navigate('/');
+  };
   return (
     <>
       <s.fixedMenu>
         <s.Header>
-          <s.pre>
+          <s.pre onClick={movePage}>
             <Icons icon={icons1} />
           </s.pre>
           <s.title>

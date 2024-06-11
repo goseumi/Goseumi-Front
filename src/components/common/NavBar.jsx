@@ -5,7 +5,7 @@ import { ReactComponent as Nav2 } from '../../assets/img/bottomNav-2.svg';
 import { ReactComponent as Nav3 } from '../../assets/img/bottomNav-3.svg';
 import { ReactComponent as Nav4 } from '../../assets/img/bottomNav-4.svg';
 import { ReactComponent as Nav5 } from '../../assets/img/bottomNav-5.svg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const NavContainer = styled.div`
   position: fixed;
@@ -35,7 +35,6 @@ const Tab = styled.div`
 
 function Nav({ icon: Icon, text, path }) {
   const navigate = useNavigate();
-
   const movePage = (path) => {
     navigate(path);
   };

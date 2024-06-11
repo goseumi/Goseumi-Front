@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
 import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const s = {
   // header
@@ -48,18 +48,26 @@ function Icons({ icon: Icon }) {
 
 const Mheader = ({ text }) => {
   const navigate = useNavigate();
-  const movePage = () => {
-    navigate('send');
+  const movePage = (path) => {
+    navigate(path);
   };
   return (
     <>
       <s.fixedMenu>
         <s.Header>
-          <s.pre>
+          <s.pre
+            onClick={() => {
+              movePage('/');
+            }}
+          >
             <Icons icon={icons1} />
           </s.pre>
           <s.title>{text}</s.title>
-          <s.pre onClick={movePage}>
+          <s.pre
+            onClick={() => {
+              movePage('send');
+            }}
+          >
             <Icons icon={icons2} />
           </s.pre>
         </s.Header>
