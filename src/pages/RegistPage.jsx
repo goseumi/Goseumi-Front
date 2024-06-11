@@ -22,7 +22,7 @@ const RegistPage = () => {
   return (
     <>
       <s.Frame>
-        <FormHeader type="regist" />
+        <FormHeader text="회 원 가 입" />
         <Form type="regist" onSubmit={handleRegister} />
       </s.Frame>
     </>

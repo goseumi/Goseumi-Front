@@ -46,7 +46,7 @@ function Icons({ icon: Icon }) {
   return <Icon fill="none" />;
 }
 
-const FormHeader = ({ type }) => {
+const FormHeader = ({ text }) => {
   //쿼리스트링으로 하면 좋을 듯?
   const navigate = useNavigate();
   const movePage = () => {
@@ -59,19 +59,7 @@ const FormHeader = ({ type }) => {
           <s.pre onClick={movePage}>
             <Icons icon={icons1} />
           </s.pre>
-          <s.title>
-            {type === 'regist'
-              ? '회원가입'
-              : type === 'find'
-              ? '비밀번호 발급'
-              : type === 'PwChange'
-              ? '비밀번호 변경'
-              : type === 'mypage'
-              ? '마이페이지'
-              : type === 'time'
-              ? '시간표'
-              : ''}
-          </s.title>
+          <s.title>{text}</s.title>
           <s.pre2 />
         </s.Header>
       </s.fixedMenu>
