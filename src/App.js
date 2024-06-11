@@ -69,6 +69,9 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import BoardList from './pages/Board/BoardList';
 import BoardInput from './pages/Board/BoardInput';
 import ErrorPage from './pages/ErrorPage';
+import IsLoginPage, { IsLoginOff, IsLoginOn } from './pages/Route/IsLoginPage';
+import { useRecoilValue } from 'recoil';
+import { isLogin } from './lib/recoil/isLoginAtom';
 
 const S = {
   Frame: styled.div`
@@ -101,28 +104,62 @@ const S = {
 };
 
 function App() {
+  const checkLogin = useRecoilValue(isLogin);
+  console.log(checkLogin);
   return (
     <>
       <GlobalStyle />
       <S.Background />
       <S.Frame>
+        {/* <BrowserRouter>
+          <Routes>
+            <Route element={<IsLoginOff />}>
+              <Route path="/" element={<SplashPage />} />
+              <Route path="/main" element={<LoginPage />} />
+              <Route path="/regist" element={<RegistPage />} />
+              <Route path="/*" element={<ErrorPage />} />
+            </Route>
+            <Route element={<IsLoginOn />}>
+              <Route path="/home" element={<MainPage />} />
+              <Route path="/commu" element={<BoardPage />} />
+              <Route path="/time" element={<TimeTablePage />} />
+              <Route path="/mypage" element={<MyPage />} />
+              <Route path="/dm" element={<MessagePage />}>
+                <Route path="/dm" element={<MListBox />} />
+                <Route path="Read" element={<MRead />} />
+              </Route>
+              <Route path="/dm/send" element={<MessageWritePage />} />
+              <Route path="/boardInput" element={<BoardList />} />
+              <Route path="/boardPage" element={<BoardInput />} />
+              <Route path="/*" element={<ErrorPage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter> */}
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<SplashPage />} />
-            <Route path="/main" element={<LoginPage />} />
-            <Route path="/regist" element={<RegistPage />} />
-            <Route path="/home" element={<MainPage />} />
-            <Route path="/commu" element={<BoardPage />} />
-            <Route path="/time" element={<TimeTablePage />} />
-            <Route path="/mypage" element={<MyPage />} />
-            <Route path="/dm" element={<MessagePage />}>
-              <Route path="/dm" element={<MListBox />} />
-              <Route path="Read" element={<MRead />} />
-            </Route>
-            <Route path="/dm/send" element={<MessageWritePage />} />
-            <Route path="/boardInput" element={<BoardList />} />
-            <Route path="/boardPage" element={<BoardInput />} />
-            <Route path="*" element={<ErrorPage />} />
+            {checkLogin ? (
+              <>
+                <Route path="/home" element={<MainPage />} />
+                <Route path="/commu" element={<BoardPage />} />
+                <Route path="/time" element={<TimeTablePage />} />
+                <Route path="/mypage" element={<MyPage />} />
+                <Route path="/dm" element={<MessagePage />}>
+                  <Route path="/dm" element={<MListBox />} />
+                  <Route path="Read" element={<MRead />} />
+                </Route>
+                <Route path="/dm/send" element={<MessageWritePage />} />
+                <Route path="/boardInput" element={<BoardList />} />
+                <Route path="/boardPage" element={<BoardInput />} />
+                <Route path="/*" element={<ErrorPage />} />
+              </>
+            ) : (
+              <>
+                <Route path="/" element={<SplashPage />} />
+                <Route path="/main" element={<LoginPage />} />
+                <Route path="/regist" element={<RegistPage />} />
+                <Route path="/*" element={<ErrorPage />} />
+              </>
+            )}
           </Routes>
         </BrowserRouter>
       </S.Frame>
