@@ -47,11 +47,11 @@ const LogoImage = styled.img`
 function SplashPage() {
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigate('/main');
-  //   }, 2000);
-  // }, []);
+  useEffect(() => {
+    setTimeout(() => {
+      navigate('/main');
+    }, 2000);
+  }, []);
 
   return (
     <>
