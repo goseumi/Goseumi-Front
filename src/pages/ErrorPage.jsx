@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Form from '../components/common/Form';
 import FormHeader from '../components/common/FormHeader';
 import FormButton from '../components/common/FormButton';
+import { useNavigate } from 'react-router-dom';
 
 const s = {
   Frame: styled.div`
@@ -41,6 +42,8 @@ const s = {
 };
 
 const ErrorPage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <s.Frame>
@@ -49,7 +52,13 @@ const ErrorPage = () => {
           <s.text>
             해당 경로는 잘못된 접근이거나 존재하지 않는 페이지 입니다.
           </s.text>
-          <s.btn>홈 화면으로</s.btn>
+          <s.btn
+            onClick={() => {
+              navigate('/home');
+            }}
+          >
+            홈 화면으로
+          </s.btn>
         </s.content>
       </s.Frame>
     </>
