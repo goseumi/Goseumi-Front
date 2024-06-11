@@ -155,7 +155,7 @@ function App() {
             ) : (
               <>
                 <Route path="/" element={<SplashPage />} />
-                <Route path="/main" element={<LoginPage />} />
+                <Route path="/home" element={<LoginPage />} />
                 <Route path="/regist" element={<RegistPage />} />
                 <Route path="/*" element={<ErrorPage />} />
               </>

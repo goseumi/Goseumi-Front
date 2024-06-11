@@ -6,7 +6,7 @@ import { isLogin } from '../../lib/recoil/isLoginAtom';
 export const IsLoginOn = () => {
   const checkLogin = useRecoilValue(isLogin);
   console.log('로그인했다');
-  return checkLogin ? <Outlet /> : <Navigate to={'/main'} />;
+  return checkLogin ? <Outlet /> : <Navigate to={'/home'} />;
 };
 
 export const IsLoginOff = () => {
