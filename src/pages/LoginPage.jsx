@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { isLoginAtom } from './../lib/recoil/isLoginAtom';
 
 const LoginContainer = styled.div`
   position: relative;
@@ -50,12 +52,14 @@ const LoginLink = styled.span`
 `;
 
 function LoginPage() {
+  const setToken = useSetRecoilState(isLoginAtom); //test
   const navigate = useNavigate();
   const movePage = () => {
     navigate('/regist');
   };
   const handleLogin = () => {
-    //로그인 axios 입력
+    //로그인 axios 입력.. 지금은 테스트
+    setToken('test');
     navigate('/home');
   };
   return (
