@@ -1,12 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Form from '../../components/common/Form';
-import Mheader from '../../components/message/Mheader';
-import MListBox from '../../components/message/MListBox';
-import MRead from '../../components/message/MRead';
-import MWrite from '../../components/message/MWrite';
 import NavBar from '../../components/common/NavBar';
 import { Outlet } from 'react-router-dom';
+import FormHeader from '../../components/common/FormHeader';
 
 const s = {
   Frame: styled.div`
@@ -22,14 +18,10 @@ const s = {
 };
 
 const MessagePage = () => {
-  const handleRegister = (data) => {
-    console.log(data);
-  };
-
   return (
     <>
       <s.Frame>
-        <Mheader text="쪽 지" />
+        <FormHeader text="쪽 지" type="dm" />
         <Outlet />
         {/* <MListBox /> */}
         {/* <MRead /> */}
