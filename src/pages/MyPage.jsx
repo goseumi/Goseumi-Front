@@ -19,7 +19,7 @@ const MyPage = () => {
   return (
     <>
       <s.Frame>
-        <FormHeader type="mypage" />
+        <FormHeader text="마이페이지" />
         <MyPageList />
       </s.Frame>
     </>
