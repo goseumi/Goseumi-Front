@@ -6,6 +6,7 @@ import MainHeader from '../components/common/MainHeader';
 import HalfBoard from '../components/common/HalfBoard';
 import MainBoard from '../components/common/MainBoard';
 import { useLocation } from 'react-router-dom';
+import icon0 from '../assets/img/mainLogo_back.png';
 import icon1 from '../assets/img/neis.png';
 import icon2 from '../assets/img/jinhak.jpg';
 import icon3 from '../assets/img/ebs.png';
@@ -51,7 +52,7 @@ function MainPage() {
       <SchoolName text="공주고등학교" />
       <SiteContainer>
         <SiteTab
-          icon={icon1}
+          icon={icon0}
           href="http://www.kongjugo.cnehs.kr/main.do"
           text="홈페이지"
         />
