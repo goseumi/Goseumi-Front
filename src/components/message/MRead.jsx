@@ -9,19 +9,18 @@ const s = {
   content: styled.div`
     width: 90%;
     padding-top: 60px;
-    border: 3px solid red;
     margin: 10px auto 100px;
     flex: 1;
   `,
   message: styled.div`
     border: 1px solid green;
-    border-bottom: 2px solid gray;
+    border: 1px solid #d7d7d7;
+    margin: 5px auto;
     padding: 10px 0;
   `,
   messageInfo: styled.div`
     width: 100%;
     display: flex;
-    border: 1px solid orange;
     justify-content: space-between;
   `,
   messageText: styled.div`

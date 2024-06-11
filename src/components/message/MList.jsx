@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const s = {
   content: styled.div`
-    border: 2px solid blue;
+    border: 1px solid #d7d7d7;
     width: 100%;
     height: 50px;
     margin: 5px auto;
@@ -13,7 +13,6 @@ const s = {
   messageInfo: styled.div`
     width: 100%;
     display: flex;
-    border: 1px solid orange;
     justify-content: space-between;
   `,
   messageTitle: styled.div`

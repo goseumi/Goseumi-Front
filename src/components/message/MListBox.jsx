@@ -7,7 +7,6 @@ const s = {
   content: styled.div`
     width: 90%;
     padding-top: 60px;
-    border: 3px solid red;
     margin: 10px auto 100px;
     flex: 1;
   `,
