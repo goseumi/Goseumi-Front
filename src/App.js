@@ -68,6 +68,7 @@ import MRead from './components/message/MRead';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import BoardList from './pages/Board/BoardList';
 import BoardInput from './pages/Board/BoardInput';
+import ErrorPage from './pages/ErrorPage';
 
 const S = {
   Frame: styled.div`
@@ -121,6 +122,7 @@ function App() {
             <Route path="/dm/send" element={<MessageWritePage />} />
             <Route path="/boardInput" element={<BoardList />} />
             <Route path="/boardPage" element={<BoardInput />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </BrowserRouter>
       </S.Frame>
