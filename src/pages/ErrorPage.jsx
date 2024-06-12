@@ -4,6 +4,8 @@ import Form from '../components/common/Form';
 import FormHeader from '../components/common/FormHeader';
 import FormButton from '../components/common/FormButton';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isLogin } from '../lib/recoil/isLoginAtom';
 
 const s = {
   Frame: styled.div`
@@ -43,7 +45,14 @@ const s = {
 
 const ErrorPage = () => {
   const navigate = useNavigate();
-
+  const checkLogin = useRecoilValue(isLogin);
+  const movePage = () => {
+    if (checkLogin) {
+      navigate('/home');
+    } else {
+      navigate('/login');
+    }
+  };
   return (
     <>
       <s.Frame>
@@ -52,13 +61,7 @@ const ErrorPage = () => {
           <s.text>
             해당 경로는 잘못된 접근이거나 존재하지 않는 페이지 입니다.
           </s.text>
-          <s.btn
-            onClick={() => {
-              navigate('/home');
-            }}
-          >
-            홈 화면으로
-          </s.btn>
+          <s.btn onClick={movePage}>홈 화면으로</s.btn>
         </s.content>
       </s.Frame>
     </>
