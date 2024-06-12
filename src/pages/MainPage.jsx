@@ -11,46 +11,34 @@ import icon1 from '../assets/img/neis.png';
 import icon2 from '../assets/img/jinhak.jpg';
 import icon3 from '../assets/img/ebs.png';
 
-const SiteContainer = styled.div`
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  padding: 20px;
-`;
+const s = {
+  SiteContainer: styled.div`
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  `,
 
-const Name = styled.div`
-  font-size: 20px;
-  font-weight: 700;
-  margin-left: 30px;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`;
+  SchoolName: styled.div`
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 30px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  `,
 
-const BoardContainer = styled.div`
-  display: flex;
-  padding: 20px;
-`;
+  BoardContainer: styled.div`
+    display: flex;
+    padding: 20px;
+  `,
+};
 
-const SubTitleFont = styled.div`
-  font-size: 16px;
-  font-weight: 700;
-  color: #a7968e;
-`;
-
-function SchoolName({ text }) {
-  return <Name>{text}</Name>;
-}
-
-function SubTitle({ text }) {
-  return <SubTitleFont>{text}</SubTitleFont>;
-}
-
-function MainPage() {
+const MainPage = () => {
   return (
     <>
       <MainHeader />
-      <SchoolName text="공주고등학교" />
-      <SiteContainer>
+      <s.SchoolName>공주고등학교</s.SchoolName>
+      <s.SiteContainer>
         <SiteTab
           icon={icon0}
           href="http://www.kongjugo.cnehs.kr/main.do"
@@ -67,19 +55,15 @@ function MainPage() {
           href="https://www.ebsi.co.kr/ebs/pot/poti/main.ebs"
           text="EBS"
         />
-      </SiteContainer>
-      <BoardContainer>
-        <HalfBoard>
-          <SubTitle text="4월 중식" />
-        </HalfBoard>
-        <HalfBoard>
-          <SubTitle text="학사일정" />
-        </HalfBoard>
-      </BoardContainer>
-      <MainBoard />
+      </s.SiteContainer>
+      <s.BoardContainer>
+        <HalfBoard text="오늘의 급식" />
+        <HalfBoard text="학사 일정" />
+      </s.BoardContainer>
+      <MainBoard text="커뮤니티 목록" />
       <NavBar />
     </>
   );
-}
+};
 
 export default MainPage;
