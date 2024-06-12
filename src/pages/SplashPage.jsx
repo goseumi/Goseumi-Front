@@ -49,7 +49,7 @@ function SplashPage() {
 
   useEffect(() => {
     setTimeout(() => {
-      navigate('/home');
+      navigate('/login');
     }, 2000);
   }, []);
 
