@@ -69,7 +69,10 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import BoardList from './pages/Board/BoardList';
 import BoardInput from './pages/Board/BoardInput';
 import ErrorPage from './pages/ErrorPage';
-import IsLoginPage, { IsLoginOff, IsLoginOn } from './pages/Route/IsLoginPage';
+import IsLoginPage, {
+  PrivateRoute,
+  PublicRoute,
+} from './pages/Route/IsLoginPage';
 import { useRecoilValue } from 'recoil';
 import { isLogin } from './lib/recoil/isLoginAtom';
 
@@ -111,15 +114,14 @@ function App() {
       <GlobalStyle />
       <S.Background />
       <S.Frame>
-        {/* <BrowserRouter>
+        <BrowserRouter>
           <Routes>
-            <Route element={<IsLoginOff />}>
+            <Route element={<PublicRoute />}>
               <Route path="/" element={<SplashPage />} />
-              <Route path="/main" element={<LoginPage />} />
+              <Route path="/login" element={<LoginPage />} />
               <Route path="/regist" element={<RegistPage />} />
-              <Route path="/*" element={<ErrorPage />} />
             </Route>
-            <Route element={<IsLoginOn />}>
+            <Route element={<PrivateRoute />}>
               <Route path="/home" element={<MainPage />} />
               <Route path="/commu" element={<BoardPage />} />
               <Route path="/time" element={<TimeTablePage />} />
@@ -131,14 +133,14 @@ function App() {
               <Route path="/dm/send" element={<MessageWritePage />} />
               <Route path="/boardInput" element={<BoardList />} />
               <Route path="/boardPage" element={<BoardInput />} />
-              <Route path="/*" element={<ErrorPage />} />
             </Route>
+            <Route path="/*" element={<ErrorPage />} />
           </Routes>
-        </BrowserRouter> */}
+        </BrowserRouter>
         {/* 아래는 옛날방식인데 이러면 라우팅은 잘 되나, 로그인을 안했을 때와
         토큰만료로 로그인을 다시해야하는 경우 로그인 페이지로 유도하지 못함
         위의 방식을 어떻게든 수정해서 써야함 */}
-        <BrowserRouter>
+        {/* <BrowserRouter>
           <Routes>
             {checkLogin ? (
               <>
@@ -164,7 +166,7 @@ function App() {
               </>
             )}
           </Routes>
-        </BrowserRouter>
+        </BrowserRouter> */}
       </S.Frame>
     </>
   );
