@@ -71,14 +71,11 @@ const MainHeader = () => {
   const movePage = (path) => {
     navigate(path);
   };
-  const Icons = ({ icon: Icon, path }) => {
+  const Icons = ({ icon: Icon, path, data }) => {
     return (
-      <s.Tab
-        onClick={(e) => {
-          movePage(path);
-        }}
-      >
+      <s.Tab onClick={() => movePage(path)}>
         <Icon width={24} height={24} fill="none" />
+        {data !== undefined ? <s.push>{data}</s.push> : <></>}
       </s.Tab>
     );
   };
@@ -88,17 +85,8 @@ const MainHeader = () => {
         <s.Logo />
         <s.IconContainer>
           <Icons icon={icons1} path="/" />
-          {/* <Icons icon={icons2} path="/"></Icons> */}
-          <s.Tab
-            onClick={(e) => {
-              movePage('/');
-            }}
-          >
-            <s.icon width={24} height={24} fill="none" />
-            <s.push>9+</s.push>
-            {/* 알림있으면 visible, 없으면 none */}
-          </s.Tab>
-          <Icons icon={icons3} path="/mypage" />
+          <Icons icon={icons2} path="/" data={'1'} />
+          <Icons icon={icons3} path="/mypage" data={'1'} />
         </s.IconContainer>
       </s.MainHeaderContainer>
     </s.fixedDiv>
