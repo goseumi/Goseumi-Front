@@ -37,48 +37,72 @@ const s = {
   `,
 
   IconContainer: styled.div`
-    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: flex-end;
   `,
 
   Tab: styled.div`
+    position: relative;
     margin-right: 22px;
     cursor: pointer;
   `,
+  icon: styled(icons2)``,
+  push: styled.span`
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    position: absolute;
+    background-color: red;
+    color: white;
+
+    left: 10px;
+    top: -10px;
+  `,
 };
 
-function Icons({ icon: Icon, path }) {
+const MainHeader = () => {
   const navigate = useNavigate();
 
   const movePage = (path) => {
     navigate(path);
   };
-  return (
-    <s.Tab
-      onClick={(e) => {
-        movePage(path);
-      }}
-    >
-      <Icon width={24} height={24} fill="none" />
-    </s.Tab>
-  );
-}
-
-function MainHeader() {
+  const Icons = ({ icon: Icon, path }) => {
+    return (
+      <s.Tab
+        onClick={(e) => {
+          movePage(path);
+        }}
+      >
+        <Icon width={24} height={24} fill="none" />
+      </s.Tab>
+    );
+  };
   return (
     <s.fixedDiv>
       <s.MainHeaderContainer>
         <s.Logo />
         <s.IconContainer>
           <Icons icon={icons1} path="/" />
-          <Icons icon={icons2} path="/" />
+          {/* <Icons icon={icons2} path="/"></Icons> */}
+          <s.Tab
+            onClick={(e) => {
+              movePage('/');
+            }}
+          >
+            <s.icon width={24} height={24} fill="none" />
+            <s.push>9+</s.push>
+            {/* 알림있으면 visible, 없으면 none */}
+          </s.Tab>
           <Icons icon={icons3} path="/mypage" />
         </s.IconContainer>
       </s.MainHeaderContainer>
     </s.fixedDiv>
   );
-}
+};
 
 export default MainHeader;
