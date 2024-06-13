@@ -41,7 +41,7 @@ const BgContainer = styled.div`
 const LogoImage = styled.img`
   width: 100%;
   position: absolute;
-  top: 250px;
+  top: 100px;
 `;
 
 function SplashPage() {
