@@ -26,7 +26,7 @@ const TimeTablePage = () => {
   return (
     <>
       <s.Frame>
-        <FormHeader type="time" />
+        <FormHeader text="시간표" />
         <TableForm />
         <GradeForm />
         <NavBar />

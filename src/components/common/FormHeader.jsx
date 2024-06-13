@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
+import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const s = {
   // header
@@ -45,28 +47,49 @@ function Icons({ icon: Icon }) {
   return <Icon fill="none" />;
 }
 
-const FormHeader = ({ type }) => {
+const FormHeader = ({ text, type }) => {
+  //쿼리스트링으로 하면 좋을 듯?
+  const navigate = useNavigate();
+  const movePage = (path) => {
+    navigate(path);
+  };
+  const sendMessage = () => {
+    alert('보내기');
+  };
   return (
     <>
       <s.fixedMenu>
         <s.Header>
-          <s.pre>
+          <s.pre
+            onClick={() => {
+              movePage('/home');
+            }}
+          >
             <Icons icon={icons1} />
           </s.pre>
-          <s.title>
-            {type === 'regist'
-              ? '회원가입'
-              : type === 'find'
-              ? '비밀번호 발급'
-              : type === 'PwChange'
-              ? '비밀번호 변경'
-              : type === 'mypage'
-              ? '마이페이지'
-              : type === 'time'
-              ? '시간표'
-              : ''}
-          </s.title>
-          <s.pre2 />
+          <s.title>{text}</s.title>
+          {/* <s.pre2 /> */}
+          {type !== undefined ? (
+            type === 'dm' ? (
+              <s.pre
+                onClick={() => {
+                  movePage('send');
+                }}
+              >
+                <Icons icon={icons2} />
+              </s.pre>
+            ) : (
+              <s.pre
+                onClick={() => {
+                  sendMessage();
+                }}
+              >
+                <Icons icon={icons2} />
+              </s.pre>
+            )
+          ) : (
+            <s.pre2 />
+          )}
         </s.Header>
       </s.fixedMenu>
     </>

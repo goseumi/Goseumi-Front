@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
+import { isLoginAtom } from './../lib/recoil/isLoginAtom';
 
 const LoginContainer = styled.div`
   position: relative;
@@ -42,12 +45,23 @@ const LoginP = styled.p`
   text-align: center;
 `;
 
-const LoginLink = styled.a`
+const LoginLink = styled.span`
   color: #3f8cff;
   font-size: 18px;
+  cursor: pointer;
 `;
 
 function LoginPage() {
+  const setToken = useSetRecoilState(isLoginAtom); //test
+  const navigate = useNavigate();
+  const movePage = () => {
+    navigate('/regist');
+  };
+  const handleLogin = () => {
+    //로그인 axios 입력.. 지금은 테스트
+    setToken('test');
+    navigate('/home');
+  };
   return (
     <>
       <LoginContainer>
@@ -62,10 +76,12 @@ function LoginPage() {
           placeholder="비밀번호를 입력해주세요"
           style={{ top: '536px' }}
         />
-        <LoginButton style={{ top: '610px' }}>로그인하기</LoginButton>
+        <LoginButton style={{ top: '610px' }} onClick={handleLogin}>
+          로그인하기
+        </LoginButton>
         <LoginP>
-          {' '}
-          회원이 아니신가요? <LoginLink>회원가입하기 {'>'}</LoginLink>
+          회원이 아니신가요?
+          <LoginLink onClick={movePage}>회원가입하기 {'>'}</LoginLink>
         </LoginP>
       </LoginContainer>
     </>

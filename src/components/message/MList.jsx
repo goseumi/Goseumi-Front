@@ -1,17 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 const s = {
   content: styled.div`
-    border: 2px solid blue;
+    border: 1px solid #d7d7d7;
     width: 100%;
     height: 50px;
     margin: 5px auto;
+    cursor: pointer;
   `,
   messageInfo: styled.div`
     width: 100%;
     display: flex;
-    border: 1px solid orange;
     justify-content: space-between;
   `,
   messageTitle: styled.div`
@@ -31,8 +32,17 @@ const s = {
 };
 
 const MList = ({ data }) => {
+  const navigate = useNavigate();
+
+  const moveRead = (data, page) => {
+    navigate(`read?title=${data}&page=${page}`); //쿼리스트링
+  };
   return (
-    <s.content>
+    <s.content
+      onClick={() => {
+        moveRead(data.writer, '1');
+      }}
+    >
       <s.messageInfo>
         <s.messageWriter>{data.writer}</s.messageWriter>
         <s.messageDate>{data.date}</s.messageDate>

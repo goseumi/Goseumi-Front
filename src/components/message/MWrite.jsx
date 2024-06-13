@@ -7,14 +7,15 @@ import { Message } from './Message';
 const s = {
   content: styled.div`
     width: 90%;
-    border: 3px solid red;
     margin: 10px auto;
+    padding-top: 60px;
     flex: 1;
   `,
   sendText: styled.textarea`
     width: 100%;
     height: 100%;
-    border: 1px solid blue;
+    border: 1px solid #d7d7d7;
+    padding: 10px;
     font-size: 15px;
     outline: none;
     resize: none;

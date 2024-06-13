@@ -6,7 +6,7 @@ const s = {
   // form
   form: styled.div`
     width: 100%;
-    padding: 0 20px;
+    padding: 60px 20px 0;
   `,
   input: styled.input`
     width: 100%;
