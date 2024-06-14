@@ -12,7 +12,7 @@ const s = {
     padding: 20px;
     overflow: scroll;
     background-color: #fff;
-    /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
+    border: 1px solid ${({ theme }) => theme.colors.mainLine};
     border-radius: 10px;
   `,
   tableInfo: styled.div`

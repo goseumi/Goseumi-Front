@@ -29,6 +29,7 @@ const s = {
     width: 100px;
     height: 24px;
     margin: 0 15%;
+    font-weight: bold;
     text-align: center;
   `,
 

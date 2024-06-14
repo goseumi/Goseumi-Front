@@ -13,6 +13,7 @@ const s = {
     max-width: 428px;
     position: fixed;
     background-color: #ffffff;
+    /* background-color: ${({ theme }) => theme.colors.Gray}; */
   `,
   MainHeaderContainer: styled.div`
     height: 60px;

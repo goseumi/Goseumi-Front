@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
 import Write from './../Board/Write';
+import { theme } from './../../style/theme';
 
 const s = {
   HBContainer: styled.div`
     width: 174px;
     height: 196px;
-    border-radius: 5px;
-    border: 1px solid #a7968e;
+    border-radius: 10px;
+    /* border: 1px solid #a7968e; */
+    background-color: #fff;
+    border: 1px solid ${({ theme }) => theme.colors.mainLine};
     margin: auto;
     padding: 10px;
     display: flex;
@@ -30,7 +33,7 @@ const s = {
   dataDiv: styled.div`
     width: 100%;
     height: 100%;
-    border: 1px solid red;
+    border: 1px solid ${({ theme }) => theme.colors.mainLine};
     overflow-y: scroll;
   `,
 };

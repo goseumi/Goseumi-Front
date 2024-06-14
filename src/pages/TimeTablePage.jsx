@@ -13,7 +13,7 @@ const s = {
     max-width: 428px;
     height: 100vh;
     overflow: auto;
-    background-color: ${({ theme }) => theme.colors.Gray};
+    /* background-color: ${({ theme }) => theme.colors.Gray}; */
     &::-webkit-scrollbar {
       display: none;
     }
@@ -28,7 +28,7 @@ const TimeTablePage = () => {
   return (
     <>
       <s.Frame>
-        <FormHeader text="시간표" />
+        <FormHeader text="시간표" color="white" />
         <TableForm />
         <GradeForm />
         <NavBar />
