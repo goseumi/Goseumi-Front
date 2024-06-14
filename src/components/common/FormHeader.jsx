@@ -13,7 +13,8 @@ const s = {
     max-width: 428px;
     display: flex;
     justify-content: center;
-    background-color: ${({ theme }) => theme.colors.Gray};
+    background-color: ${(props) =>
+      props.color ? props.color : ({ theme }) => theme.colors.Gray};
   `,
   Header: styled.header`
     width: 100%;
@@ -47,7 +48,7 @@ function Icons({ icon: Icon }) {
   return <Icon fill="none" />;
 }
 
-const FormHeader = ({ text, type }) => {
+const FormHeader = ({ text, type, color }) => {
   //쿼리스트링으로 하면 좋을 듯?
   const navigate = useNavigate();
   const movePage = (path) => {
@@ -58,7 +59,7 @@ const FormHeader = ({ text, type }) => {
   };
   return (
     <>
-      <s.fixedMenu>
+      <s.fixedMenu color={color}>
         <s.Header>
           <s.pre
             onClick={() => {
