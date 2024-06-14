@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import Form from '../components/common/Form';
-import FormHeader from '../components/common/FormHeader';
-import MyPageList from '../components/myPage/MyPageList';
+import FormHeader from './../../components/common/FormHeader';
+import MyPageList from './../../components/myPage/MyPageList';
+import { theme } from './../../style/theme';
 
 const s = {
   Frame: styled.div`
@@ -19,7 +19,7 @@ const MyPage = () => {
   return (
     <>
       <s.Frame>
-        <FormHeader text="마이페이지" />
+        <FormHeader text="마이페이지" color="white" />
         <MyPageList />
       </s.Frame>
     </>
