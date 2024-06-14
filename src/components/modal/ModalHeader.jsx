@@ -116,19 +116,21 @@ const ModalHeader = ({ text, setAtom }) => {
             <Icons icon={icons1} />
           </s.pre>
         </s.Header>
-        <s.grade ref={scrollRef} onMouseDown={handleMouseDown}>
-          <s.gradeli>1학년 1학기</s.gradeli>
-          <s.gradeli>1학년 2학기</s.gradeli>
-          <s.gradeli>2학년 1학기</s.gradeli>
-          <s.gradeli>2학년 2학기</s.gradeli>
-          <s.gradeli>3학년 1학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-          <s.gradeli>3학년 2학기</s.gradeli>
-        </s.grade>
+        {text === '내신계산기' ? (
+          <s.grade ref={scrollRef} onMouseDown={handleMouseDown}>
+            <s.gradeli>1학년 1학기</s.gradeli>
+            <s.gradeli>1학년 2학기</s.gradeli>
+            <s.gradeli>2학년 1학기</s.gradeli>
+            <s.gradeli>2학년 2학기</s.gradeli>
+            <s.gradeli>3학년 1학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+            <s.gradeli>3학년 2학기</s.gradeli>
+          </s.grade>
+        ) : null}
       </s.fixedMenu>
     </>
   );
