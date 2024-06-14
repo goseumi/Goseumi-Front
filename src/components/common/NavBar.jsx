@@ -14,8 +14,10 @@ const NavContainer = styled.div`
   max-width: 428px;
   display: flex;
   justify-content: center;
-  border-top: 1px solid #f0f0f0;
+  /* border-top: 8px solid #f0f0f0; */
+  box-shadow: 0 -5px 10px -10px #000;
   background-color: white;
+  border-radius: 30px 30px 0 0;
 `;
 
 const Tab = styled.div`

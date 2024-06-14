@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
 import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { theme } from './../../style/theme';
 
 const s = {
   // header
@@ -12,13 +13,12 @@ const s = {
     max-width: 428px;
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: ${({ theme }) => theme.colors.Gray};
   `,
   Header: styled.header`
     width: 100%;
     max-width: 428px;
     height: 60px;
-    border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-around;
     align-items: center;
