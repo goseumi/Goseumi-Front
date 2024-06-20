@@ -12,7 +12,9 @@ const s = {
   `,
   contentDiv: styled.div`
     width: 100%;
-    background-color: #fff;
+    /* background-color: #fff; */
+    background-color: #f1f3f5;
+    /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
     border-radius: 10px;
     height: 260px;
     padding: 10px;

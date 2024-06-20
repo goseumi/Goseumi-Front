@@ -9,7 +9,7 @@ const s = {
     max-width: 428px;
     height: 100vh;
     overflow: auto;
-    background-color: #f1f3f5;
+    /* background-color: #f1f3f5; */
     &::-webkit-scrollbar {
       display: none;
     }

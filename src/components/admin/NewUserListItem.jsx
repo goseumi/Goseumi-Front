@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const s = {
   Frame: styled.section`
     width: 100%;
+    background-color: #fff;
     border: 1px solid ${({ theme }) => theme.colors.mainLine};
     border-radius: 5px;
     margin: 5px auto;
