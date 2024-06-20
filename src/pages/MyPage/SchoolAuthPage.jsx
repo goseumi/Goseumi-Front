@@ -9,7 +9,7 @@ import SchoolSearchModal from '../../components/modal/SchoolSearchModal';
 import { useRecoilState } from 'recoil';
 import { SchoolSetAtom } from '../../lib/recoil/modalAtom';
 import FormButton from './../../components/common/FormButton';
-import Icon1 from '../../assets/img/imgUpload_icon.png';
+import Icon1 from '../../assets/img/Upload.png';
 
 const s = {
   Frame: styled.div`
@@ -26,7 +26,7 @@ const s = {
   content: styled.div`
     width: 100%;
     /* height: 70vh; */
-    border: 1px solid red;
+    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     align-items: center;
