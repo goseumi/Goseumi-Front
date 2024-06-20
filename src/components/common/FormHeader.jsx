@@ -26,7 +26,7 @@ const s = {
   `,
 
   title: styled.div`
-    width: 100px;
+    width: 120px;
     height: 24px;
     margin: 0 15%;
     font-weight: bold;
