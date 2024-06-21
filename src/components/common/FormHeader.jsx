@@ -13,6 +13,7 @@ const s = {
     max-width: 428px;
     display: flex;
     justify-content: center;
+    background-color: #fff;
     /* background-color: ${(props) =>
       props.color ? props.color : ({ theme }) => theme.colors.Gray}; */
   `,
