@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import NewUserList from './TopListItem';
 import { dummy } from './dummy';
@@ -7,6 +7,10 @@ import UserTitle from './ListTitle';
 import ListItem from './TopListItem';
 import TopListItem from './TopListItem';
 import BottomListItem from './BottomListItem';
+import { theme } from './../../style/theme';
+import { useRecoilState } from 'recoil';
+import { CategorySetAtom } from '../../lib/recoil/modalAtom';
+import CategoryModal from '../modal/CategoryModal';
 
 const s = {
   content: styled.section`
@@ -23,17 +27,41 @@ const s = {
     height: 260px;
     padding: 10px;
     margin-bottom: 10px;
+    clear: both;
   `,
   dataDiv: styled.div`
     width: 100%;
     height: 220px;
     overflow-y: scroll;
   `,
+  modalBtn: styled.button`
+    width: 80px;
+    height: 30px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    float: right;
+    border: 1px solid ${({ theme }) => theme.colors.main};
+    background-color: ${({ theme }) => theme.colors.Gray};
+  `,
 };
 
 const List = ({ type, t1, t2 }) => {
+  const [open, setOpen] = useRecoilState(CategorySetAtom);
+  const [modalText, setModalText] = useState('카테고리 등록');
+  const [category, setCategory] = useState('');
+  const handleModalOpen = (text, categoryText) => {
+    setCategory(categoryText);
+    setModalText(text);
+    setOpen(!open);
+  };
+
   return (
     <s.content>
+      <s.modalBtn onClick={() => handleModalOpen('카테고리 등록', '')}>
+        카테고리 등록
+      </s.modalBtn>
       <s.contentDiv>
         <UserTitle title={t1} count={dummy.length} />
         <s.dataDiv>
@@ -42,7 +70,12 @@ const List = ({ type, t1, t2 }) => {
                 <TopListItem key={index} data={data} type={type} />
               ))
             : dummy2.map((data, index) => (
-                <TopListItem key={index} data={data} type={type} />
+                <TopListItem
+                  key={index}
+                  data={data}
+                  type={type}
+                  modal={handleModalOpen}
+                />
               ))}
         </s.dataDiv>
       </s.contentDiv>
@@ -52,6 +85,7 @@ const List = ({ type, t1, t2 }) => {
           <BottomListItem type={type} data={dummy[0]} />
         </s.dataDiv>
       </s.contentDiv>
+      <CategoryModal text={modalText} category={category} />
     </s.content>
   );
 };
