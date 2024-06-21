@@ -14,3 +14,8 @@ export const SchoolSetAtom = atom({
   key: 'SchoolSetAtom',
   default: false,
 });
+
+export const CategorySetAtom = atom({
+  key: 'CategorySetAtom',
+  default: false,
+});
