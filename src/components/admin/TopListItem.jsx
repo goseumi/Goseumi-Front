@@ -62,7 +62,7 @@ const s = {
   `,
 };
 
-const TopListItem = ({ type, data }) => {
+const TopListItem = ({ type, data, modal }) => {
   const [visibleIndex, setVisibleIndex] = useState(null);
   const toggleDetail = (index) => {
     if (index === visibleIndex) {
@@ -72,11 +72,11 @@ const TopListItem = ({ type, data }) => {
     }
   };
 
-  const okClick = () => {
+  const okClick = (text, categoryText) => {
     if (type === 'user') {
       alert('user 수락'); // user
     } else if (type === 'category') {
-      alert('category 수정'); //category
+      modal(text, categoryText);
     }
   };
 
@@ -101,7 +101,7 @@ const TopListItem = ({ type, data }) => {
             >
               상세
             </s.Btn>
-            <s.okBtn onClick={okClick}>
+            <s.okBtn onClick={() => okClick('카테고리 수정', data.name)}>
               {type === 'category' ? '수정' : '수락'}
             </s.okBtn>
             <s.noBtn onClick={reject}>
