@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import FormHeader from './../../components/common/FormHeader';
 import MyPageList from './../../components/myPage/MyPageList';
-import NewUser from '../../components/admin/NewUser';
+import NewUser from '../../components/admin/List';
+import List from '../../components/admin/List';
 
 const s = {
   Frame: styled.div`
@@ -21,7 +22,7 @@ const UserManagePage = () => {
     <>
       <s.Frame>
         <FormHeader text="회원 관리" />
-        <NewUser />
+        <List type="user" t1="가입 대기중인 회원" t2="기존 회원" />
       </s.Frame>
     </>
   );

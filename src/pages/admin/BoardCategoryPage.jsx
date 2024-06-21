@@ -2,7 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import FormHeader from './../../components/common/FormHeader';
 import MyPageList from './../../components/myPage/MyPageList';
-import NewUser from '../../components/admin/NewUser';
+import NewUser from '../../components/admin/List';
+import List from '../../components/admin/List';
 
 const s = {
   Frame: styled.div`
@@ -23,7 +24,7 @@ const BoardCategoryPage = () => {
         {/* 여기다가 이제 카테고리 페이지를 만들건데 유저 관리 페이지처럼 할거임
         위에는 전체 카테고리영역, 아래는 삭제된 카테고리 목록 등등 */}
         <FormHeader text="카테고리 관리" />
-        <NewUser />
+        <List type="category" t1="카테고리 목록" t2="제외된 카테고리" />
       </s.Frame>
     </>
   );
