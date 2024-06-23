@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import NewUserList from './TopListItem';
 import { dummy } from './dummy';
 import { dummy2 } from './dummy2';
-import UserTitle from './ListTitle';
 import ListItem from './TopListItem';
 import TopListItem from './TopListItem';
 import BottomListItem from './BottomListItem';
@@ -11,6 +10,7 @@ import { theme } from './../../style/theme';
 import { useRecoilState } from 'recoil';
 import { CategorySetAtom } from '../../lib/recoil/modalAtom';
 import CategoryModal from '../modal/CategoryModal';
+import ListTitle from './ListTitle';
 
 const s = {
   content: styled.section`
@@ -65,7 +65,7 @@ const List = ({ type, t1, t2 }) => {
         </s.modalBtn>
       )}
       <s.contentDiv>
-        <UserTitle title={t1} count={dummy.length} />
+        <ListTitle title={t1} count={`${dummy.length}명`} />
         <s.dataDiv>
           {type === 'user'
             ? dummy.map((data, index) => (
@@ -82,7 +82,7 @@ const List = ({ type, t1, t2 }) => {
         </s.dataDiv>
       </s.contentDiv>
       <s.contentDiv>
-        <UserTitle title={t2} count={1} />
+        <ListTitle title={t2} count={`${1}명`} />
         <s.dataDiv>
           <BottomListItem type={type} data={dummy[0]} />
         </s.dataDiv>
