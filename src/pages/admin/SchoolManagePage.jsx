@@ -7,7 +7,6 @@ import List from '../../components/admin/List';
 import InputBox from '../../components/common/InputBox';
 import SchoolListItem from '../../components/AuthComponent/SchoolListItem';
 import ListTitle from '../../components/admin/ListTitle';
-import FormButton from '../../components/common/FormButton';
 import { theme } from './../../style/theme';
 import SchoolModal from '../../components/modal/SchoolModal';
 import { useRecoilState } from 'recoil';
