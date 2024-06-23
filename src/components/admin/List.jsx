@@ -59,9 +59,11 @@ const List = ({ type, t1, t2 }) => {
 
   return (
     <s.content>
-      <s.modalBtn onClick={() => handleModalOpen('카테고리 등록', '')}>
-        카테고리 등록
-      </s.modalBtn>
+      {type === 'category' && (
+        <s.modalBtn onClick={() => handleModalOpen('카테고리 등록', '')}>
+          카테고리 등록
+        </s.modalBtn>
+      )}
       <s.contentDiv>
         <UserTitle title={t1} count={dummy.length} />
         <s.dataDiv>
