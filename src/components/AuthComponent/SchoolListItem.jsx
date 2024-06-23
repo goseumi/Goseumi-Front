@@ -6,6 +6,7 @@ import { SchoolSetAtom } from '../../lib/recoil/modalAtom';
 const s = {
   Frame: styled.section`
     width: 95%;
+    height: 40px;
     border: 1px solid ${({ theme }) => theme.colors.mainLine};
     border-radius: 5px;
     margin: 5px auto;
@@ -19,11 +20,13 @@ const s = {
     justify-content: space-between;
     align-items: center;
     padding: 0 10px 0;
+    height: 100%;
   `,
   name: styled.p`
     width: 100%;
     font-size: 14px;
     font-weight: bold;
+    /* margin-bottom: 5px; */
   `,
   addr: styled.p`
     width: 100%;
@@ -31,7 +34,7 @@ const s = {
   `,
 };
 
-const SchoolListItem = ({ text, addr }) => {
+const SchoolListItem = ({ text, addr, click }) => {
   const [open, setOpen] = useRecoilState(SchoolSetAtom);
   const [visibleIndex, setVisibleIndex] = useState(null);
   const toggleDetail = (index) => {
@@ -43,7 +46,7 @@ const SchoolListItem = ({ text, addr }) => {
   };
   return (
     <>
-      <s.Frame onClick={() => alert(text)}>
+      <s.Frame onClick={click}>
         <s.content>
           <s.name>{text}</s.name>
           <s.addr>{addr}</s.addr>
