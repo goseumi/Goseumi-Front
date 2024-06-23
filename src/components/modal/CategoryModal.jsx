@@ -50,6 +50,14 @@ const CategoryModal = ({ text, category }) => {
     setOpen(!open);
   };
 
+  const saveHandle = () => {
+    if (category === '') {
+      alert('등록');
+    } else {
+      alert('수정');
+    }
+  };
+
   return (
     <ReactModal
       isOpen={open}
@@ -65,7 +73,7 @@ const CategoryModal = ({ text, category }) => {
             placeholder="카테고리명을 입력하세요."
             defaultValue={category}
           />
-          <s.Btn>저장</s.Btn>
+          <s.Btn onClick={saveHandle}>저장</s.Btn>
         </s.inputDiv>
       </s.content>
     </ReactModal>
