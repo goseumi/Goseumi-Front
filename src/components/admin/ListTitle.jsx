@@ -22,7 +22,7 @@ const ListTitle = ({ title, count }) => {
   return (
     <s.titleDiv>
       <s.title>{title}</s.title>
-      <s.count>{count} 명</s.count>
+      <s.count>{count}</s.count>
     </s.titleDiv>
   );
 };
