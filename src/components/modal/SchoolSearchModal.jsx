@@ -23,6 +23,10 @@ const SchoolSearchModal = () => {
     setOpen(!open);
   };
 
+  const resultClick = (name) => {
+    alert(name);
+  };
+
   return (
     <ReactModal
       isOpen={open}
@@ -33,7 +37,11 @@ const SchoolSearchModal = () => {
     >
       <ModalHeader text={'검색결과'} setAtom={SchoolSetAtom} />
       <s.content>
-        <SchoolListItem text="세종고등학교" addr="세종시 조치원읍" />
+        <SchoolListItem
+          text="세종고등학교"
+          addr="세종시 조치원읍"
+          click={() => resultClick('세종고등학교')}
+        />
         <SchoolListItem text="세종고등학교" addr="세종시 조치원읍" />
         <SchoolListItem text="세종고등학교" addr="세종시 조치원읍" />
         <SchoolListItem text="세종고등학교" addr="세종시 조치원읍" />
