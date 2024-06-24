@@ -93,7 +93,7 @@ const SchoolManagePage = () => {
       value: 'name',
     },
     {
-      name: '지번주소',
+      name: '우편번호',
       value: 'addressNumber',
     },
     {

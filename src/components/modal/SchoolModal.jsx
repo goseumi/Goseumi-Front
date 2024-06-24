@@ -91,10 +91,10 @@ const SchoolModal = ({ type, data }) => {
           />
         </s.inputDiv>
         <s.inputDiv>
-          <s.title>지번</s.title>
+          <s.title>우편번호</s.title>
           <s.input
             type="text"
-            placeholder="지번을 입력하세요."
+            placeholder="우편번호을 입력하세요."
             defaultValue={data.addrNumber}
           />
         </s.inputDiv>

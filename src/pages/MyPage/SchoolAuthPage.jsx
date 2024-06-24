@@ -142,8 +142,9 @@ const SchoolAuthPage = () => {
               <option value="" disabled={true}>
                 검색조건
               </option>
-              <option value="school">학교명</option>
-              <option value="addr">주소</option>
+              <option value="name">학교명</option>
+              <option value="address">주소</option>
+              <option value="addressNumber">우편번호</option>
             </s.condition>
             <s.input
               id="nick"
