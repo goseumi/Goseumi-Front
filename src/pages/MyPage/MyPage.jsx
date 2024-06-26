@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import FormHeader from './../../components/common/FormHeader';
 import MyPageList from './../../components/myPage/MyPageList';
 import { theme } from './../../style/theme';
+import { useRecoilValue } from 'recoil';
+import { isAdmin } from '../../lib/recoil/isLoginAtom';
 
 const s = {
   Frame: styled.div`
@@ -16,10 +18,15 @@ const s = {
 };
 
 const MyPage = () => {
+  const isAdminCheck = useRecoilValue(isAdmin);
+
   return (
     <>
       <s.Frame>
-        <FormHeader text="마이페이지" color="white" />
+        <FormHeader
+          text={isAdminCheck ? `관리자 메뉴` : '마이페이지'}
+          color="white"
+        />
         <MyPageList />
       </s.Frame>
     </>
