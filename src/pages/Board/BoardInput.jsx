@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import TabHeader from "../../components/common/TabHeader";
+import FormHeader from "../../components/common/FormHeader";
 
 const StyledInput = styled.input`
     width: 90%;
@@ -26,21 +26,23 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    margin-top: 40px;
 `;
 
 function BoardInput(){
-    return(
-        <Container>
-            <TabHeader text="글쓰기"/>
-            <StyledInput
-                type="text"
-                placeholder="Title"
-            />
-            <StyledTextarea
-                placeholder="Content"
-                rows="30"
-            />
-        </Container>
+    return(<>
+            <FormHeader text="글쓰기" type="board"/>
+            <Container>
+                <StyledInput
+                    type="text"
+                    placeholder="제목"
+                />
+                <StyledTextarea
+                    placeholder="내용을 입력하세요"
+                    rows="30"
+                />
+            </Container>
+        </>
     );
 }
 

@@ -41,6 +41,16 @@ const s = {
     width: 24px;
     height: 24px;
   `,
+
+  uploadBtn: styled.button`
+    width: 50px;
+    height: 30px;
+    border-radius: 20%;
+    background-color: #0000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    
+  `
 };
 
 function Icons({ icon: Icon }) {
@@ -56,13 +66,20 @@ const FormHeader = ({ text, type }) => {
   const sendMessage = () => {
     alert('보내기');
   };
+  const upload = () => {
+    alert('업로드');
+  };
   return (
     <>
       <s.fixedMenu>
         <s.Header>
           <s.pre
             onClick={() => {
-              movePage('/home');
+              if (type === 'board') {
+                movePage('/boardPage');
+              } else {
+                movePage('/home');
+              }
             }}
           >
             <Icons icon={icons1} />
@@ -78,6 +95,14 @@ const FormHeader = ({ text, type }) => {
               >
                 <Icons icon={icons2} />
               </s.pre>
+            ) : type === 'board' ? (
+              <s.uploadBtn
+                onClick={() => {
+                  upload();
+                }}
+              >
+                완료
+              </s.uploadBtn>
             ) : (
               <s.pre
                 onClick={() => {
