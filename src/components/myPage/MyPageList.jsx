@@ -3,6 +3,7 @@ import { useRecoilState, useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { isAdmin } from '../../lib/recoil/isLoginAtom';
 import MyPageListItem from './MyPageListItem';
+import { useNavigate } from 'react-router-dom';
 
 const s = {
   content: styled.div`
@@ -47,6 +48,10 @@ const s = {
 };
 
 const MyPageList = ({ data }) => {
+  const navigate = useNavigate();
+  const handleMovePage = (path) => {
+    navigate(path);
+  };
   return (
     // <s.content>
     //   <s.List>
@@ -88,13 +93,25 @@ const MyPageList = ({ data }) => {
         <MyPageListItem text="비밀번호 변경" permission="user" />
         <MyPageListItem text="학교정보 변경" permission="user" />
         <MyPageListItem text="메일 인증" permission="user" />
-        <MyPageListItem text="회원 관리" permission="admin" />
-        <MyPageListItem text="학교 관리" permission="admin" />
+        <MyPageListItem
+          text="회원 관리"
+          permission="admin"
+          onclick={() => handleMovePage('user')}
+        />
+        <MyPageListItem
+          text="학교 관리"
+          permission="admin"
+          onclick={() => handleMovePage('school')}
+        />
         <MyPageListItem text="신고접수 내역" permission="admin" />
       </s.List>
       <s.List>
         <s.ListTitme>커뮤니티 & 쪽지</s.ListTitme>
-        <MyPageListItem text="카테고리 관리" permission="admin" />
+        <MyPageListItem
+          text="카테고리 관리"
+          permission="admin"
+          onclick={() => handleMovePage('category')}
+        />
         <MyPageListItem text="이용제한 내역" permission="user" />
         <MyPageListItem text="쪽지 설정" permission="all" />
       </s.List>
