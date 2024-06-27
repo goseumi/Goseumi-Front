@@ -5,6 +5,7 @@ import MyPageList from './../../components/myPage/MyPageList';
 import { theme } from './../../style/theme';
 import { useRecoilValue } from 'recoil';
 import { isAdmin } from '../../lib/recoil/isLoginAtom';
+import { Outlet } from 'react-router-dom';
 
 const s = {
   Frame: styled.div`
@@ -27,7 +28,8 @@ const MyPage = () => {
           text={isAdminCheck ? `관리자 메뉴` : '마이페이지'}
           color="white"
         />
-        <MyPageList />
+        <Outlet />
+        {/* <MyPageList /> */}
       </s.Frame>
     </>
   );
