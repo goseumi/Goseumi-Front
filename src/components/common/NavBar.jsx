@@ -59,7 +59,7 @@ function NavBar() {
       <Nav icon={Nav2} text="게시판" path="/commu" />
       <Nav icon={Nav3} text="시간표" path="/time" />
       <Nav icon={Nav4} text="DM" path="/dm" />
-      <Nav icon={Nav5} text="문방구" path="/admin" />
+      <Nav icon={Nav5} text="문방구" path="/admin/user" />
       {/* 임시방편으로 홈가기, recoil 테스트 */}
     </NavContainer>
   );
