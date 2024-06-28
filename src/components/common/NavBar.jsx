@@ -41,11 +41,7 @@ function Nav({ icon: Icon, text, path }) {
     navigate(path);
   };
   return (
-    <Tab
-      onClick={(e) => {
-        movePage(path);
-      }}
-    >
+    <Tab onClick={() => movePage(path)}>
       <Icon width={24} height={24} fill="none" />
       {text}
     </Tab>
