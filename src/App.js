@@ -69,11 +69,7 @@ import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import BoardList from './pages/Board/BoardList';
 import BoardInput from './pages/Board/BoardInput';
 import ErrorPage from './pages/ErrorPage';
-import IsLoginPage, {
-  AdminRoute,
-  PrivateRoute,
-  PublicRoute,
-} from './pages/Route/IsLoginPage';
+import IsLoginPage, { AdminRoute, PrivateRoute, PublicRoute } from './pages/Route/IsLoginPage';
 import { useRecoilValue } from 'recoil';
 import { isLogin } from './lib/recoil/isLoginAtom';
 import UserManagePage from './pages/admin/UserManagePage';
@@ -140,8 +136,8 @@ function App() {
                 <Route path="/dm" element={<MessagePage />}>
                   <Route path="/dm" element={<MListBox />} />
                   <Route path="read" element={<MRead />} />
+                  <Route path="send" element={<MessageWritePage />} />
                 </Route>
-                <Route path="/dm/send" element={<MessageWritePage />} />
                 <Route path="/boardInput" element={<BoardList />} />
                 <Route path="/boardPage" element={<BoardInput />} />
                 <Route element={<AdminRoute />}>
