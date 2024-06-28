@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
 import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
@@ -14,8 +14,7 @@ const s = {
     display: flex;
     justify-content: center;
     background-color: #fff;
-    /* background-color: ${(props) =>
-      props.color ? props.color : ({ theme }) => theme.colors.Gray}; */
+    /* background-color: ${(props) => (props.color ? props.color : ({ theme }) => theme.colors.Gray)}; */
   `,
   Header: styled.header`
     width: 100%;
@@ -63,30 +62,17 @@ const FormHeader = ({ text, type, color }) => {
     <>
       <s.fixedMenu color={color}>
         <s.Header>
-          <s.pre
-            onClick={() => {
-              movePage('/home');
-            }}
-          >
+          <s.pre onClick={() => movePage('/home')}>
             <Icons icon={icons1} />
           </s.pre>
           <s.title>{text}</s.title>
-          {/* <s.pre2 /> */}
           {type !== undefined ? (
             type === 'dm' ? (
-              <s.pre
-                onClick={() => {
-                  movePage('send');
-                }}
-              >
+              <s.pre onClick={() => movePage('send')}>
                 <Icons icon={icons2} />
               </s.pre>
             ) : (
-              <s.pre
-                onClick={() => {
-                  sendMessage();
-                }}
-              >
+              <s.pre onClick={() => sendMessage()}>
                 <Icons icon={icons2} />
               </s.pre>
             )
