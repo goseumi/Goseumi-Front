@@ -150,7 +150,6 @@ function App() {
                 </Route>
               </Route>
               <Route path="/*" element={<ErrorPage />} />
-              {/* <Route path="/admin" element={<UserManagePage />} /> */}
             </Routes>
           </BrowserRouter>
           {/* 아래는 옛날방식인데 이러면 라우팅은 잘 되나, 로그인을 안했을 때와
