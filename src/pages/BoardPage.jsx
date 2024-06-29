@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
     border-radius: 5px;
     border: 1px solid #000000;
     margin: 30px auto;
-    margin-bottom: ${props => props.marginBottom || '0px'};
+    marginBottom: ${props => props.marginBottom || '0px'};
 
     `
 
