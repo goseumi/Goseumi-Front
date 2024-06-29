@@ -5,6 +5,10 @@ import List from "../../components/Board/List";
 import { Link } from "react-router-dom";
 
 
+const ListContainer = styled.div`
+    margin-top: 60px;
+`
+
 const Notice = styled.div`
     height: 60px;
     border-Bottom: 1px solid #F0F0F0;
@@ -37,19 +41,19 @@ const WriteBtn = styled.div`
 `;
 
 function BoardList(){
-    return(
-        <>
-        <FormHeader text="자유게시판"/>
-        <Notice>공지사항입니다...</Notice>
-        <ShowList>
-            <List>
-            <Link to="/boardDetail"/>
-            </List>
-            <List/>
-            <Link to="/boardInput">
-                    <WriteBtn>쓰기</WriteBtn>
-            </Link>
-        </ShowList>
+    return(<>
+            <FormHeader text="자유게시판"/>
+            <ListContainer>
+                <Notice>공지사항입니다...</Notice>
+                <ShowList>
+                    <List>
+                        <Link to="/boardDetail"/></List>
+                    <List/>
+                    <Link to="/boardInput">
+                        <WriteBtn>쓰기</WriteBtn>
+                    </Link>
+                </ShowList>
+            </ListContainer>
         </>
     );
 }
