@@ -8,6 +8,7 @@ const StyledInput = styled.input`
     padding: 10px;
     font-size: 16px;
     display: block;
+    outline: none;
     border-Bottom: 1px solid #F0F0F0;
 `;
 
@@ -17,6 +18,8 @@ const StyledTextarea = styled.textarea`
     padding: 10px;
     font-size: 16px;
     display: block;
+    resize: none;
+    outline: none;
     border-Bottom: 1px solid #F0F0F0;
 
 `;
