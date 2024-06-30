@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
 import { theme } from './../../../style/theme';
+import { grade } from '../../../util/TestData';
 
 const s = {
   content: styled.div`
@@ -14,7 +15,7 @@ const s = {
   `,
 };
 
-const GradeGraph = () => {
+const GradeGraph = ({ report, important }) => {
   const data = {
     labels: [
       ['1학년', '1학기'],
@@ -31,13 +32,13 @@ const GradeGraph = () => {
         backgroundColor: 'white',
         borderColor: '#3F8CFF',
         borderWidth: 2,
-        data: [6.5, 3.0, 3.2, 4.2, 2.2, 2.8],
+        data: report,
       },
       {
         type: 'line',
         label: '주요',
         backgroundColor: 'white',
-        data: [1, 2, 3, 4, 5, 6],
+        data: important,
         borderColor: '#ff6e65',
         borderWidth: 2,
       },
@@ -49,7 +50,7 @@ const GradeGraph = () => {
     maxBarThickness: 30,
     grouped: true,
     interaction: {
-      mode: 'index',
+      mode: 'point',
     },
 
     plugins: {
@@ -66,7 +67,7 @@ const GradeGraph = () => {
         },
       },
       tooltip: {
-        backgroundColor: 'rgba(124, 35, 35, 0.4)',
+        backgroundColor: '#000',
         padding: 10,
         bodySpacing: 5,
         bodyFont: {
@@ -81,9 +82,10 @@ const GradeGraph = () => {
           label: (context) => {
             let label = context.dataset.label + '' || '';
 
-            return context.parsed.y !== null ? label + ': ' + context.parsed.y + '배' : null;
+            return context.parsed.y !== null ? label + ': ' + context.parsed.y + '등급' : null;
           },
         },
+        events: ['click'],
       },
     },
     scales: {
