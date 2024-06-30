@@ -2,7 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/close.svg';
 import { useRecoilState } from 'recoil';
-
+import { GradeListItems } from '../../util/options';
 const s = {
   // header
   fixedMenu: styled.div`
@@ -118,17 +118,9 @@ const ModalHeader = ({ text, setAtom }) => {
         </s.Header>
         {text === '내신계산기' ? (
           <s.grade ref={scrollRef} onMouseDown={handleMouseDown}>
-            <s.gradeli>1학년 1학기</s.gradeli>
-            <s.gradeli>1학년 2학기</s.gradeli>
-            <s.gradeli>2학년 1학기</s.gradeli>
-            <s.gradeli>2학년 2학기</s.gradeli>
-            <s.gradeli>3학년 1학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
-            <s.gradeli>3학년 2학기</s.gradeli>
+            {GradeListItems.map((data, index) => (
+              <s.gradeli key={index}>{data}</s.gradeli>
+            ))}
           </s.grade>
         ) : null}
       </s.fixedMenu>
