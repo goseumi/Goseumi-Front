@@ -75,9 +75,12 @@ const FormHeader = ({ text, type }) => {
         <s.Header>
           <s.pre
             onClick={() => {
-              if (type === 'board') {
+              if (type === 'input') {
                 movePage('/boardPage');
-              } else {
+              } else if (type === 'board'){
+                movePage('/boardPage');
+              }
+              else {
                 movePage('/home');
               }
             }}
@@ -86,7 +89,7 @@ const FormHeader = ({ text, type }) => {
           </s.pre>
           <s.title>{text}</s.title>
           {/* <s.pre2 /> */}
-          {type !== undefined ? (
+          {type !== undefined && type !== 'board'? (
             type === 'dm' ? (
               <s.pre
                 onClick={() => {
@@ -95,7 +98,7 @@ const FormHeader = ({ text, type }) => {
               >
                 <Icons icon={icons2} />
               </s.pre>
-            ) : type === 'board' ? (
+            ) : type === 'input' ? (
               <s.uploadBtn
                 onClick={() => {
                   upload();

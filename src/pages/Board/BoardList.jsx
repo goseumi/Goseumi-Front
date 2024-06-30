@@ -54,13 +54,9 @@ function BoardList(){
             <ListContainer>
                 <Notice>공지사항입니다...</Notice>
                 <ShowList>
-                    <List/>
-                    <List/><List/>
-                    <List/><List/>
-                    <List/><List/>
-                    <List/><List/>
-                    <List/><List/>
-                    <List/>
+                    <Link to="/boardDetail">
+                        <List/>
+                    </Link>
                     <Link to="/boardInput">
                         <WriteBtn> 
                             <Icons icon={write}/>

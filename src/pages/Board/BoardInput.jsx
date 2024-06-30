@@ -34,7 +34,7 @@ const Container = styled.div`
 
 function BoardInput(){
     return(<>
-            <FormHeader text="글쓰기" type="board"/>
+            <FormHeader text="글쓰기" type="input"/>
             <Container>
                 <StyledInput
                     type="text"
