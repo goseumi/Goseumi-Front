@@ -10,7 +10,7 @@ import { theme } from '../../style/theme';
 const s = {
   content: styled.div`
     width: 95%;
-    height: 55vh;
+    height: 360px;
     background-color: #fff;
     /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
     border-radius: 10px;

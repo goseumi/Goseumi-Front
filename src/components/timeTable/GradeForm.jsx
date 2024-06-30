@@ -7,8 +7,8 @@ import { GradeSetAtom } from '../../lib/recoil/modalAtom';
 const s = {
   content: styled.div`
     width: 95%;
-    height: 15vh;
-    margin: 1vh auto 0;
+    height: 100px;
+    margin: 15px auto 100px;
     padding: 20px;
     overflow: scroll;
     background-color: #fff;
