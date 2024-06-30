@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { gradeOption } from '../../../util/options';
+import { gradeOptions } from '../../../util/options';
 import { theme } from './../../../style/theme';
 
 const s = {
@@ -54,6 +54,7 @@ const s = {
     margin: 5px 15px 0 0;
     color: ${(props) => (props.color === 'red' ? ({ theme }) => theme.colors.negative : 'black')};
     cursor: pointer;
+    font-weight: bold;
   `,
 };
 
@@ -88,7 +89,7 @@ const GradeTable = ({ data }) => {
               </s.Td>
               <s.Td align="center">
                 <s.Select>
-                  {gradeOption.map((data, index) => (
+                  {gradeOptions.map((data, index) => (
                     <option key={index} value={data}>
                       {data}
                     </option>
