@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import '../../style/modal.css';
@@ -7,6 +7,7 @@ import { GradeSetAtom } from '../../lib/recoil/modalAtom';
 import ModalHeader from './ModalHeader';
 import GradeGraph from '../timeTable/Grade/GradeGraph';
 import GradeTable from '../timeTable/Grade/GradeTable';
+import { grade } from '../../util/TestData';
 
 const s = {
   content: styled.div`
@@ -57,6 +58,28 @@ const GradeModal = () => {
     setOpen(!open);
   };
 
+  let report = [];
+  let important = [];
+  useLayoutEffect(() => {
+    for (let i = 0; i < grade.length; i++) {
+      let length = grade[i].length;
+      let importLength = 0;
+      let sum = 0;
+      let importSum = 0;
+      for (let j = 0; j < grade[i].length; j++) {
+        if (grade[i][j].import) {
+          importSum += grade[i][j].grade;
+          importLength += 1;
+        }
+        sum += grade[i][j].grade;
+      }
+      report.push(sum === 0 ? 0 : Math.round((sum / length) * 100) / 100);
+      important.push(importSum === 0 ? 0 : Math.round((importSum / importLength) * 10) / 10);
+    }
+    console.log('내신 : ' + report);
+    console.log('주요 : ' + important);
+  });
+
   return (
     <ReactModal
       isOpen={open}
@@ -67,7 +90,7 @@ const GradeModal = () => {
     >
       <ModalHeader text={'내신계산기'} setAtom={GradeSetAtom} />
       <s.content>
-        <GradeGraph />
+        <GradeGraph report={report} important={important} />
         <s.info>
           <s.mainInfo>
             <s.title>4학년 2학기</s.title>
