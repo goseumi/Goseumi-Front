@@ -17,8 +17,7 @@ const s = {
   `,
   info: styled.div`
     width: 90%;
-
-    margin: 10px auto;
+    margin: 20px auto 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -73,8 +72,7 @@ const GradeModal = () => {
           <s.mainInfo>
             <s.title>4학년 2학기</s.title>
             <s.subtitle>
-              내신 <s.boldText>4.5</s.boldText> 국영수{' '}
-              <s.boldText>4.5</s.boldText>
+              내신 <s.boldText>4.5</s.boldText> 주요 과목 <s.boldText>4.5</s.boldText>
             </s.subtitle>
           </s.mainInfo>
           <s.saveBtn>저장하기</s.saveBtn>

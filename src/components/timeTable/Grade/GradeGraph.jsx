@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Line } from 'react-chartjs-2';
 import 'chart.js/auto';
+import { theme } from './../../../style/theme';
 
 const s = {
   content: styled.div`
@@ -26,18 +27,18 @@ const GradeGraph = () => {
     datasets: [
       {
         type: 'line',
-        label: '전체',
-        backgroundColor: 'rgb(54, 162, 235)',
-        borderColor: 'blue',
+        label: '내신',
+        backgroundColor: 'white',
+        borderColor: '#3F8CFF',
         borderWidth: 2,
         data: [6.5, 3.0, 3.2, 4.2, 2.2, 2.8],
       },
       {
         type: 'line',
-        label: '국영수',
-        backgroundColor: 'rgb(255, 99, 132)',
+        label: '주요',
+        backgroundColor: 'white',
         data: [1, 2, 3, 4, 5, 6],
-        borderColor: 'red',
+        borderColor: '#ff6e65',
         borderWidth: 2,
       },
     ],

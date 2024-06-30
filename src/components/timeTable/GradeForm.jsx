@@ -57,7 +57,7 @@ const GradeForm = () => {
           평균 내신 <s.curScore>4.5</s.curScore> / 9.0
         </s.title>
         <s.title>
-          국 영 수 평균 <s.curScore>4.5</s.curScore> / 9.0
+          주요 과목 평균 <s.curScore>4.5</s.curScore> / 9.0
         </s.title>
       </s.scoreInfo>
     </s.content>
