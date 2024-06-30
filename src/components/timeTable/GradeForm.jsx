@@ -8,7 +8,7 @@ const s = {
   content: styled.div`
     width: 95%;
     height: 100px;
-    margin: 15px auto 90px;
+    margin: 15px auto 100px;
     padding: 20px;
     overflow: scroll;
     background-color: #fff;
