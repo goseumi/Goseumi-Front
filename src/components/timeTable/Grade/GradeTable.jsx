@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { gradeOptions } from '../../../util/options';
 import { theme } from './../../../style/theme';
@@ -49,17 +49,20 @@ const s = {
     text-align: center;
     appearance: none;
     background-color: ${({ theme }) => theme.colors.Gray};
+    outline: none;
   `,
   Btn: styled.button`
-    margin: 5px 15px 0 0;
+    margin: 5px 10px 0 5px;
     color: ${(props) => (props.color === 'red' ? ({ theme }) => theme.colors.negative : 'black')};
     cursor: pointer;
     font-weight: bold;
+    font-size: 12px;
   `,
 };
 
-const GradeTable = ({ data }) => {
+const GradeTable = ({ datas, onSaveData }) => {
   const [length, setlength] = useState(10);
+  const [gradeData, setGradeData] = useState(datas);
   const rows = Array.from({ length }, (_, index) => index);
   const handleAddRow = () => {
     setlength(length + 1);
@@ -67,6 +70,28 @@ const GradeTable = ({ data }) => {
   const handleResetRow = () => {
     setlength(10);
   };
+
+  const handleChangeData = (e, index) => {
+    const { name, value } = e.target;
+    setGradeData((prevGradeData) => {
+      const updatedGradeData = [...prevGradeData]; // 이전 상태를 복사하여 새로운 배열 생성
+      updatedGradeData[index] = {
+        ...updatedGradeData[index], // 이전 객체의 속성들을 유지한 후
+        [name]: value, // 새로운 값을 업데이트
+      };
+      return updatedGradeData; // 새로운 배열을 반환하여 상태 업데이트
+    });
+  };
+
+  const handleSaveData = () => {
+    onSaveData(gradeData);
+  };
+
+  useLayoutEffect(() => {
+    setGradeData(datas);
+    console.log('재설정');
+  }, [datas]);
+
   return (
     <s.content>
       <s.GradeTable>
@@ -82,13 +107,27 @@ const GradeTable = ({ data }) => {
           {rows.map((index) => (
             <s.Tr key={index}>
               <s.Td>
-                <s.TitleInput type="text" />
+                <s.TitleInput
+                  type="text"
+                  name="name"
+                  value={gradeData[index] !== undefined ? gradeData[index].name : ''}
+                  onChange={(e) => handleChangeData(e, index)}
+                />
               </s.Td>
               <s.Td align="center">
-                <s.ScoreInput type="text" />
+                <s.ScoreInput
+                  type="text"
+                  name="score"
+                  value={gradeData[index] !== undefined ? gradeData[index].score : ''}
+                  onChange={(e) => handleChangeData(e, index)}
+                />
               </s.Td>
               <s.Td align="center">
-                <s.Select>
+                <s.Select
+                  name="grade"
+                  value={gradeData[index] !== undefined ? gradeData[index].grade : ''}
+                  onChange={(e) => handleChangeData(e, index)}
+                >
                   {gradeOptions.map((data, index) => (
                     <option key={index} value={data}>
                       {data}
@@ -102,11 +141,11 @@ const GradeTable = ({ data }) => {
             </s.Tr>
           ))}
         </tbody>
-        <s.Btn onClick={handleAddRow} color={'red'}>
-          과목 추가
-        </s.Btn>
-        <s.Btn onClick={handleResetRow}>초기화</s.Btn>
       </s.GradeTable>
+      <s.Btn onClick={handleAddRow} color={'red'}>
+        과목 추가
+      </s.Btn>
+      <s.Btn onClick={handleResetRow}>초기화</s.Btn>
     </s.content>
   );
 };
