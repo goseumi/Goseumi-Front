@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from 'react';
+import React, { forwardRef, useEffect, useImperativeHandle, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import { gradeOptions } from '../../../util/options';
 import { theme } from './../../../style/theme';
@@ -60,7 +60,8 @@ const s = {
   `,
 };
 
-const GradeTable = ({ datas, onSaveData }) => {
+const GradeTable = forwardRef((props, ref) => {
+  const { datas } = props;
   const [length, setlength] = useState(10);
   const [gradeData, setGradeData] = useState(datas);
   const rows = Array.from({ length }, (_, index) => index);
@@ -68,24 +69,27 @@ const GradeTable = ({ datas, onSaveData }) => {
     setlength(length + 1);
   };
   const handleResetRow = () => {
+    setGradeData([]);
     setlength(10);
   };
 
   const handleChangeData = (e, index) => {
     const { name, value } = e.target;
     setGradeData((prevGradeData) => {
-      const updatedGradeData = [...prevGradeData]; // 이전 상태를 복사하여 새로운 배열 생성
+      const updatedGradeData = [...prevGradeData];
       updatedGradeData[index] = {
-        ...updatedGradeData[index], // 이전 객체의 속성들을 유지한 후
-        [name]: value, // 새로운 값을 업데이트
+        ...updatedGradeData[index],
+        [name]: value,
       };
-      return updatedGradeData; // 새로운 배열을 반환하여 상태 업데이트
+      return updatedGradeData;
     });
   };
 
-  const handleSaveData = () => {
-    onSaveData(gradeData);
-  };
+  useImperativeHandle(ref, () => ({
+    handleChildSaveData() {
+      console.log(gradeData);
+    },
+  }));
 
   useLayoutEffect(() => {
     setGradeData(datas);
@@ -128,6 +132,9 @@ const GradeTable = ({ datas, onSaveData }) => {
                   value={gradeData[index] !== undefined ? gradeData[index].grade : ''}
                   onChange={(e) => handleChangeData(e, index)}
                 >
+                  <option value="" selected disabled>
+                    선택
+                  </option>
                   {gradeOptions.map((data, index) => (
                     <option key={index} value={data}>
                       {data}
@@ -148,6 +155,6 @@ const GradeTable = ({ datas, onSaveData }) => {
       <s.Btn onClick={handleResetRow}>초기화</s.Btn>
     </s.content>
   );
-};
+});
 
 export default GradeTable;
