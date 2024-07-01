@@ -1,9 +1,9 @@
-import React, { useLayoutEffect, useState } from 'react';
+import React, { useEffect, useLayoutEffect, useState } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import '../../style/modal.css';
 import { useRecoilState } from 'recoil';
-import { GradeSetAtom } from '../../lib/recoil/modalAtom';
+import { GradeDataState, GradeSetAtom } from '../../lib/recoil/modalAtom';
 import ModalHeader from './ModalHeader';
 import GradeGraph from '../timeTable/Grade/GradeGraph';
 import GradeTable from '../timeTable/Grade/GradeTable';
@@ -54,12 +54,34 @@ const s = {
 
 const GradeModal = () => {
   const [open, setOpen] = useRecoilState(GradeSetAtom);
+  const [report, setReport] = useState([]);
+  const [important, setImportant] = useState([]);
+  const [gradeState, setGradeState] = useRecoilState(GradeDataState);
+  const [grades, setGrades] = useState({
+    grade: '1학년 1학기',
+    idx: 0,
+  });
   const handleClose = () => {
     setOpen(!open);
+    setGrades({ ...grade, grade: '1학년 1학기', idx: 0 });
   };
 
-  let report = [];
-  let important = [];
+  const handleGrade = (data) => {
+    setGrades({
+      ...grades,
+      grade: data.grade,
+      idx: data.idx,
+    });
+    console.log(grades.idx);
+    console.log(report[grades.idx]);
+  };
+
+  const handleSaveData = (data) => {
+    console.log(data);
+  };
+
+  const CalReport = [];
+  const CalImportant = [];
   useLayoutEffect(() => {
     for (let i = 0; i < grade.length; i++) {
       let length = grade[i].length;
@@ -73,12 +95,14 @@ const GradeModal = () => {
         }
         sum += grade[i][j].grade;
       }
-      report.push(sum === 0 ? 0 : Math.round((sum / length) * 100) / 100);
-      important.push(importSum === 0 ? 0 : Math.round((importSum / importLength) * 10) / 10);
+      CalReport.push(sum === 0 ? 0 : Math.round((sum / length) * 100) / 100);
+      CalImportant.push(importSum === 0 ? 0 : Math.round((importSum / importLength) * 10) / 10);
     }
+    setReport(CalReport);
+    setImportant(CalImportant);
     console.log('내신 : ' + report);
     console.log('주요 : ' + important);
-  });
+  }, []);
 
   return (
     <ReactModal
@@ -88,19 +112,20 @@ const GradeModal = () => {
       className="Modal"
       overlayClassName="Overlay"
     >
-      <ModalHeader text={'내신계산기'} setAtom={GradeSetAtom} />
+      <ModalHeader text={'내신계산기'} setAtom={GradeSetAtom} onGrade={handleGrade} />
       <s.content>
         <GradeGraph report={report} important={important} />
         <s.info>
           <s.mainInfo>
-            <s.title>4학년 2학기</s.title>
+            <s.title>{grades.grade}</s.title>
             <s.subtitle>
-              내신 <s.boldText>4.5</s.boldText> 주요 과목 <s.boldText>4.5</s.boldText>
+              내신 <s.boldText>{report[grades.idx]}등급</s.boldText>
+              주요 과목 <s.boldText>{important[grades.idx]}등급</s.boldText>
             </s.subtitle>
           </s.mainInfo>
-          <s.saveBtn>저장하기</s.saveBtn>
+          <s.saveBtn onClick={handleSaveData}>저장하기</s.saveBtn>
         </s.info>
-        <GradeTable />
+        <GradeTable datas={grade[grades.idx]} onSaveData={handleSaveData} />
       </s.content>
     </ReactModal>
   );
