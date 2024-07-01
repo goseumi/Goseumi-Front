@@ -111,7 +111,6 @@ const TableForm = () => {
         </s.tableDiv>
       </s.tableLayout>
       <TableModal />
-      <GradeModal />
     </s.content>
   );
 };
