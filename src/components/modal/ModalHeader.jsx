@@ -60,12 +60,18 @@ const s = {
   `,
 };
 
-const ModalHeader = ({ text, setAtom }) => {
+const ModalHeader = ({ text, setAtom, onGrade }) => {
   const [open, setOpen] = useRecoilState(setAtom);
   const handleClose = () => {
     setOpen(!open);
   };
 
+  const handleClickGrade = (grade, idx) => {
+    const data = { grade, idx };
+    onGrade(data);
+  };
+
+  //드래그
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [dragging, setDragging] = useState(false);
@@ -119,7 +125,9 @@ const ModalHeader = ({ text, setAtom }) => {
         {text === '내신계산기' ? (
           <s.grade ref={scrollRef} onMouseDown={handleMouseDown}>
             {GradeListItems.map((data, index) => (
-              <s.gradeli key={index}>{data}</s.gradeli>
+              <s.gradeli key={index} onClick={() => handleClickGrade(data, index)}>
+                {data}
+              </s.gradeli>
             ))}
           </s.grade>
         ) : null}
