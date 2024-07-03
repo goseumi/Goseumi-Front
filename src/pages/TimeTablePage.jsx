@@ -21,10 +21,6 @@ const s = {
 };
 
 const TimeTablePage = () => {
-  const handleRegister = (data) => {
-    console.log(data);
-  };
-
   return (
     <>
       <s.Frame>
