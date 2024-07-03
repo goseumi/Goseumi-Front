@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import NavBar from '../../components/common/NavBar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import FormHeader from '../../components/common/FormHeader';
 
 const s = {
@@ -18,15 +18,16 @@ const s = {
 };
 
 const MessagePage = () => {
+  const pathName = useLocation().pathname;
   return (
     <>
       <s.Frame>
-        <FormHeader text="쪽 지" type="dm" />
+        {pathName === '/dm' ? <FormHeader text="쪽 지" /> : <FormHeader text="쪽 지" type="dm" />}
         <Outlet />
         {/* <MListBox /> */}
         {/* <MRead /> */}
         {/* 위의 컴포넌트를 중첩라우팅 생각 */}
-        <NavBar />
+        {pathName === '/dm/send' ? '' : <NavBar />}
       </s.Frame>
     </>
   );

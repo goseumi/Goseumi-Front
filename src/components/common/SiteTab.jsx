@@ -1,5 +1,6 @@
 import React, { Children } from 'react';
 import styled from 'styled-components';
+import { theme } from './../../style/theme';
 
 const SiteContainer = styled.div`
   display: flex;
@@ -12,12 +13,13 @@ const ImgDiv = styled.div`
   width: 77px;
   height: 77px;
   border-radius: 50%;
-  border: 1px solid #a7968e;
+  border: 1px solid ${({ theme }) => theme.colors.mainLine};
   cursor: pointer;
   background-image: url(${(props) => props.icon});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
+  background-color: white;
 `;
 
 const Text = styled.div`

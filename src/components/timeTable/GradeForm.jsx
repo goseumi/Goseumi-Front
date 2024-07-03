@@ -11,7 +11,8 @@ const s = {
     margin: 1vh auto 0;
     padding: 20px;
     overflow: scroll;
-    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    border: 1px solid ${({ theme }) => theme.colors.mainLine};
     border-radius: 10px;
   `,
   tableInfo: styled.div`
