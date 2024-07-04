@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const localAxios = () => {
   const instance = axios.create({
-    baseURL: '',
+    baseURL: '/proxy',
     withCredentials: true,
   });
 
@@ -15,7 +15,7 @@ export const localAxios = () => {
 export const registAxios = () => {
   //api단이 빠짐
   const instance = axios.create({
-    baseURL: '',
+    baseURL: '/proxy',
     withCredentials: true,
   });
 
