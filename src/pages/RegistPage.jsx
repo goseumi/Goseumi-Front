@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Form from '../components/common/Form';
 import FormHeader from '../components/common/FormHeader';
+import { regist } from '../lib/api/user-api';
 
 const s = {
   Frame: styled.div`
@@ -16,6 +17,16 @@ const s = {
 
 const RegistPage = () => {
   const handleRegister = (data) => {
+    regist(
+      data,
+      (resp) => {
+        console.log(resp.data);
+      },
+      (error) => {
+        console.log('회원가입 실패');
+        console.log(error);
+      },
+    );
     console.log(data);
   };
 
