@@ -43,6 +43,16 @@ const s = {
     width: 24px;
     height: 24px;
   `,
+
+  uploadBtn: styled.button`
+    width: 50px;
+    height: 30px;
+    border-radius: 20%;
+    background-color: #0000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    
+  `
 };
 
 function Icons({ icon: Icon }) {
@@ -58,19 +68,25 @@ const FormHeader = ({ text, type, color }) => {
   const sendMessage = () => {
     alert('보내기');
   };
+  const upload = () => {
+    alert('업로드');
+  };
   return (
     <>
       <s.fixedMenu color={color}>
         <s.Header>
-          <s.pre onClick={() => movePage('/home')}>
-            <Icons icon={icons1} />
-          </s.pre>
-          <s.title>{text}</s.title>
-          {type !== undefined ? (
             type === 'dm' ? (
               <s.pre onClick={() => movePage('send')}>
                 <Icons icon={icons2} />
               </s.pre>
+            ) : type === 'input' ? (
+              <s.uploadBtn
+                onClick={() => {
+                  upload();
+                }}
+              >
+                완료
+              </s.uploadBtn>
             ) : (
               <s.pre onClick={() => sendMessage()}>
                 <Icons icon={icons2} />

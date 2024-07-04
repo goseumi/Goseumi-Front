@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { theme } from './../../style/theme';
 
+
 const s = {
   BContainer: styled.div`
     width: 368px;

@@ -68,6 +68,7 @@ import MRead from './components/message/MRead';
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import BoardList from './pages/Board/BoardList';
 import BoardInput from './pages/Board/BoardInput';
+import BoardDetailPage from './pages/Board/BoardDetailPage';
 import ErrorPage from './pages/ErrorPage';
 import IsLoginPage, { AdminRoute, PrivateRoute, PublicRoute } from './pages/Route/IsLoginPage';
 import { useRecoilValue } from 'recoil';
@@ -168,8 +169,8 @@ function App() {
                   <Route path="Read" element={<MRead />} />
                 </Route>
                 <Route path="/dm/send" element={<MessageWritePage />} />
-                <Route path="/boardInput" element={<BoardList />} />
-                <Route path="/boardPage" element={<BoardInput />} />
+                <Route path="/boardInput" element={<BoardInput />} />
+                <Route path="/boardPage" element={<BoardList />} />
                 <Route path="/*" element={<ErrorPage />} />
               </>
             ) : (

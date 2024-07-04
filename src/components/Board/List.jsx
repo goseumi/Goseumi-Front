@@ -6,7 +6,7 @@ import {ReactComponent as comment} from "../../assets/img/comment.svg";
 const ListContainer = styled.div`
     width: 95%;
     height: 80px;
-    border-Bottom: 1px solid #000000;
+    border-Bottom: 1px solid #D3D3D3;
     margin: 10px auto;
     display: flex;
     justify-content: space-between;
@@ -15,8 +15,10 @@ const ListContainer = styled.div`
 const Image = styled.div`
     width: 70px;
     height: 70px;
-    border: 1px solid #000000;
+    border: 1px solid #D3D3D3;
     display: flex;
+    border-radius: 5px;
+
 
 `
 const ContentsContainer = styled.div`
@@ -27,22 +29,38 @@ const ContentsContainer = styled.div`
 
 const IconContainer = styled.div`
     display: flex;
-    padding: 8px;
+    padding: 5px;
+    margin-top: 5px;
 
 `
 const Title = styled.div`
     display: flex;
     font-weight: 600;
     padding: 5px;
+    font-size: 16px;
 `
 
 const Content = styled.div`
     display: flex;
-    padding-left: 8px;
+    padding-left: 5px;
+    margin-top: 2px;
     font-size: 16px;
 
-
 `
+
+const Count = styled.div`
+    font-size: 14px;
+    margin-left: 2px;
+    margin-right: 10px;
+`
+
+const TimeStamp = styled.div`
+    font-size: 14px;
+    margin-left: 2px;
+    margin-right: 10px;
+    color: #757575;
+`
+
 function Icons({ icon: Icon }) {
     return (
             <Icon width={15} height={15} fill="none" />
@@ -57,9 +75,12 @@ function List(){
                 <Title>제목</Title>
                 <Content>내용을 어쩌구 저쩌구...</Content>
                 <IconContainer>
-                <Icons icon={heart}/>
-                <Icons icon={comment}/>
-            </IconContainer>
+                    <Icons icon={heart}/>
+                    <Count>0</Count>
+                    <Icons icon={comment}/>
+                    <Count>0</Count>
+                    <TimeStamp>지금막</TimeStamp>
+                </IconContainer>
             </ContentsContainer>
             <Image/>
         </ListContainer>

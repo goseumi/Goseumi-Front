@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import TabHeader from "../components/common/TabHeader";
 import NavBar from "../components/common/NavBar";
+import { Link } from "react-router-dom";
+
 
 
     const Container = styled.div`
@@ -10,7 +12,8 @@ import NavBar from "../components/common/NavBar";
     border-radius: 5px;
     border: 1px solid #000000;
     margin: 30px auto;
-    
+    marginBottom: ${props => props.marginBottom || '0px'};
+
     `
 
     const List = styled.div`
@@ -31,8 +34,10 @@ function BoardPage(){
             <List>댓글 단 글</List>
             <List>스크랩</List>
         </Container>
-        <Container height="300px">
-            <List>자유게시판</List>
+        <Container height="300px" marginBottom="100px">
+            <Link to="/boardPage">
+                <List>자유게시판</List>
+            </Link>
             <List>자유게시판</List>
             <List>자유게시판</List>
             <List>자유게시판</List>
