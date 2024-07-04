@@ -25,7 +25,6 @@ const ShowList = styled.div`
   flex-direction: column-reverse;
   height: 100%;
   overflow: auto;
-  border: 3px solid red;
 `;
 
 const WriteBtn = styled.div`
