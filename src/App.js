@@ -139,8 +139,9 @@ function App() {
                   <Route path="read" element={<MRead />} />
                   <Route path="send" element={<MessageWritePage />} />
                 </Route>
-                <Route path="/boardInput" element={<BoardList />} />
-                <Route path="/boardPage" element={<BoardInput />} />
+                <Route path="/boardInput" element={<BoardInput />} />
+                <Route path="/boardPage" element={<BoardList />} />
+                <Route path="/boardDetail" element={<BoardDetailPage />} />
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<MyPage />}>
                     <Route path="/admin" element={<MyPageList />} />

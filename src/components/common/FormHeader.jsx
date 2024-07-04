@@ -48,11 +48,9 @@ const s = {
     width: 50px;
     height: 30px;
     border-radius: 20%;
-    background-color: #0000000;
+    background-color: #fff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-    
-  `
+  `,
 };
 
 function Icons({ icon: Icon }) {
@@ -73,20 +71,23 @@ const FormHeader = ({ text, type, color }) => {
   };
   return (
     <>
-      <s.fixedMenu color={color}>
+      <s.fixedMenu>
         <s.Header>
+          <s.pre
+            onClick={() => {
+              type === 'input' || type === 'board' ? movePage('/boardPage') : movePage('/home');
+            }}
+          >
+            <Icons icon={icons1} />
+          </s.pre>
+          <s.title>{text}</s.title>
+          {type !== undefined && type !== 'board' ? (
             type === 'dm' ? (
               <s.pre onClick={() => movePage('send')}>
                 <Icons icon={icons2} />
               </s.pre>
             ) : type === 'input' ? (
-              <s.uploadBtn
-                onClick={() => {
-                  upload();
-                }}
-              >
-                완료
-              </s.uploadBtn>
+              <s.uploadBtn onClick={() => upload()}>완료</s.uploadBtn>
             ) : (
               <s.pre onClick={() => sendMessage()}>
                 <Icons icon={icons2} />
