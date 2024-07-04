@@ -55,8 +55,7 @@ const Form = ({ type, onSubmit }) => {
   const btnOnOff = () => {
     const nicknamePattern = /^[a-zA-Z0-9가-힣]{2,12}$/;
     const phonePattern = /^\d{8,11}$/;
-    const passwordPattern =
-      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()\-_=+\\|[\]{};:'",.<>?/]).{6,16}$/;
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()\-_=+\\|[\]{};:'",.<>?/]).{6,16}$/;
     const emailPattern = /^[^ㄱ-ㅎㅏ-ㅣ가-힣]+@[a-zA-Z0-9.]+\.[A-Za-z]+$/;
 
     if (type === 'regist') {
