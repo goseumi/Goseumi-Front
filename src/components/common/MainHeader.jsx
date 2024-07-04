@@ -6,6 +6,8 @@ import { ReactComponent as icons3 } from '../../assets/img/icons-3.svg';
 import logo from '../../assets/img/HeadLogo.png';
 import NavBar from './NavBar';
 import { useNavigate } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { isAdmin } from '../../lib/recoil/isLoginAtom';
 
 const s = {
   fixedDiv: styled.div`
@@ -13,6 +15,7 @@ const s = {
     max-width: 428px;
     position: fixed;
     background-color: #ffffff;
+    /* background-color: ${({ theme }) => theme.colors.Gray}; */
   `,
   MainHeaderContainer: styled.div`
     height: 60px;
@@ -67,9 +70,15 @@ const s = {
 
 const MainHeader = () => {
   const navigate = useNavigate();
-
+  const isAdminCheck = useRecoilValue(isAdmin);
   const movePage = (path) => {
-    navigate(path);
+    if (path === '/mypage' && isAdminCheck) {
+      navigate('/admin');
+    } else if (path === '/mypage' && !isAdminCheck) {
+      navigate('/mypage');
+    } else {
+      navigate(path);
+    }
   };
   const Icons = ({ icon: Icon, path, data }) => {
     return (

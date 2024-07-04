@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import MList from './MList';
 import { Mdata } from './Mdata';
 import { Message } from './Message';
-import { useSearchParams } from 'react-router-dom';
+import { useLocation, useSearchParams } from 'react-router-dom';
 
 const s = {
   content: styled.div`
@@ -16,7 +16,8 @@ const s = {
     border: 1px solid green;
     border: 1px solid #d7d7d7;
     margin: 5px auto;
-    padding: 10px 0;
+    border-radius: 5px;
+    padding: 10px;
   `,
   messageInfo: styled.div`
     width: 100%;
@@ -24,7 +25,7 @@ const s = {
     justify-content: space-between;
   `,
   messageText: styled.div`
-    font-size: 15px;
+    font-size: 12px;
     line-height: 25px;
   `,
   messageWriter: styled.div`

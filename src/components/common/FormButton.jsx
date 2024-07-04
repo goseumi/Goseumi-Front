@@ -31,6 +31,8 @@ const FormButton = ({ type, onClick, active }) => {
         ? '임시 비밀번호 발송'
         : type === 'PwChange'
         ? '비밀번호 변경'
+        : type === 'add'
+        ? '등록하기'
         : ''}
     </s.join>
   );

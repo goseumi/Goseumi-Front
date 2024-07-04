@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { theme } from './../../style/theme';
 
 const s = {
   content: styled.div`
@@ -9,6 +10,8 @@ const s = {
     height: 50px;
     margin: 5px auto;
     cursor: pointer;
+    border-radius: 5px;
+    padding: 0 10px 0 10px;
   `,
   messageInfo: styled.div`
     width: 100%;

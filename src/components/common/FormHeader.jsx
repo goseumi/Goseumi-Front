@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useLayoutEffect } from 'react';
 import styled from 'styled-components';
 import { ReactComponent as icons1 } from '../../assets/img/headerPre.svg';
 import { ReactComponent as icons2 } from '../../assets/img/sendMessage.svg';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { theme } from './../../style/theme';
 
 const s = {
   // header
@@ -12,22 +13,23 @@ const s = {
     max-width: 428px;
     display: flex;
     justify-content: center;
-    background-color: #ffffff;
+    background-color: #fff;
+    /* background-color: ${(props) => (props.color ? props.color : ({ theme }) => theme.colors.Gray)}; */
   `,
   Header: styled.header`
     width: 100%;
     max-width: 428px;
     height: 60px;
-    border-bottom: 1px solid #f0f0f0;
     display: flex;
     justify-content: space-around;
     align-items: center;
   `,
 
   title: styled.div`
-    width: 100px;
+    width: 120px;
     height: 24px;
     margin: 0 15%;
+    font-weight: bold;
     text-align: center;
   `,
 
@@ -57,7 +59,7 @@ function Icons({ icon: Icon }) {
   return <Icon fill="none" />;
 }
 
-const FormHeader = ({ text, type }) => {
+const FormHeader = ({ text, type, color }) => {
   //쿼리스트링으로 하면 좋을 듯?
   const navigate = useNavigate();
   const movePage = (path) => {
@@ -71,31 +73,10 @@ const FormHeader = ({ text, type }) => {
   };
   return (
     <>
-      <s.fixedMenu>
+      <s.fixedMenu color={color}>
         <s.Header>
-          <s.pre
-            onClick={() => {
-              if (type === 'input') {
-                movePage('/boardPage');
-              } else if (type === 'board'){
-                movePage('/boardPage');
-              }
-              else {
-                movePage('/home');
-              }
-            }}
-          >
-            <Icons icon={icons1} />
-          </s.pre>
-          <s.title>{text}</s.title>
-          {/* <s.pre2 /> */}
-          {type !== undefined && type !== 'board'? (
             type === 'dm' ? (
-              <s.pre
-                onClick={() => {
-                  movePage('send');
-                }}
-              >
+              <s.pre onClick={() => movePage('send')}>
                 <Icons icon={icons2} />
               </s.pre>
             ) : type === 'input' ? (
@@ -107,11 +88,7 @@ const FormHeader = ({ text, type }) => {
                 완료
               </s.uploadBtn>
             ) : (
-              <s.pre
-                onClick={() => {
-                  sendMessage();
-                }}
-              >
+              <s.pre onClick={() => sendMessage()}>
                 <Icons icon={icons2} />
               </s.pre>
             )

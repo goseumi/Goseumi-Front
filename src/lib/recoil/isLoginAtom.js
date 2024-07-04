@@ -9,3 +9,8 @@ export const isLogin = selector({
   key: 'islogin',
   get: ({ get }) => !!get(isLoginAtom),
 });
+
+export const isAdmin = atom({
+  key: 'isAdmin',
+  default: false,
+});

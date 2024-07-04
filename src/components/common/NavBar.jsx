@@ -14,8 +14,10 @@ const NavContainer = styled.div`
   max-width: 428px;
   display: flex;
   justify-content: center;
-  border-top: 1px solid #f0f0f0;
+  /* border-top: 8px solid #f0f0f0; */
+  box-shadow: 0 -5px 10px -10px #000;
   background-color: white;
+  border-radius: 30px 30px 0 0;
 `;
 
 const Tab = styled.div`
@@ -39,11 +41,7 @@ function Nav({ icon: Icon, text, path }) {
     navigate(path);
   };
   return (
-    <Tab
-      onClick={(e) => {
-        movePage(path);
-      }}
-    >
+    <Tab onClick={() => movePage(path)}>
       <Icon width={24} height={24} fill="none" />
       {text}
     </Tab>
@@ -57,7 +55,7 @@ function NavBar() {
       <Nav icon={Nav2} text="게시판" path="/commu" />
       <Nav icon={Nav3} text="시간표" path="/time" />
       <Nav icon={Nav4} text="DM" path="/dm" />
-      <Nav icon={Nav5} text="문방구" path="/login" />
+      <Nav icon={Nav5} text="문방구" path="/admin/user" />
       {/* 임시방편으로 홈가기, recoil 테스트 */}
     </NavContainer>
   );

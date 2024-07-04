@@ -10,11 +10,15 @@ import icon0 from '../assets/img/mainLogo.png';
 import icon1 from '../assets/img/neis.png';
 import icon2 from '../assets/img/jinhak.jpg';
 import icon3 from '../assets/img/ebs.png';
+import { theme } from './../style/theme';
 
 const s = {
   MainContent: styled.main`
     width: 100%;
     padding-top: 60px;
+    height: 100vh;
+    overflow-y: scroll;
+    /* background-color: ${({ theme }) => theme.colors.Gray}; */
   `,
   SiteContainer: styled.div`
     overflow: hidden;
@@ -67,7 +71,6 @@ const MainPage = () => {
         </s.BoardContainer>
         <MainBoard text="커뮤니티 목록" />
       </s.MainContent>
-
       <NavBar />
     </>
   );

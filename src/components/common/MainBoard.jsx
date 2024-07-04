@@ -1,13 +1,16 @@
 import React from 'react';
 import styled from 'styled-components';
+import { theme } from './../../style/theme';
 
 
 const s = {
   BContainer: styled.div`
     width: 368px;
     height: 150px;
-    border-radius: 5px;
-    border: 1px solid #a7968e;
+    border-radius: 10px;
+    /* border: 1px solid #a7968e; */
+    border: 1px solid ${({ theme }) => theme.colors.mainLine};
+    /* background-color: #fff; */
     margin: 0 auto 110px;
     padding: 10px;
     display: flex;
