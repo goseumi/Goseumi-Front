@@ -13,11 +13,11 @@ const s = {
     flex: 1;
   `,
   message: styled.div`
-    border: 1px solid green;
     border: 1px solid #d7d7d7;
     margin: 5px auto;
     border-radius: 5px;
     padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   `,
   messageInfo: styled.div`
     width: 100%;

@@ -13,13 +13,16 @@ const ImgDiv = styled.div`
   width: 77px;
   height: 77px;
   border-radius: 50%;
-  border: 1px solid ${({ theme }) => theme.colors.mainLine};
+  border: 1px solid #d7d7d7;
+  /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
   cursor: pointer;
   background-image: url(${(props) => props.icon});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-color: white;
+  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 `;
 
 const Text = styled.div`

@@ -7,13 +7,15 @@ const s = {
     width: 368px;
     height: 150px;
     border-radius: 10px;
+    border: 1px solid #d7d7d7;
     /* border: 1px solid #a7968e; */
-    border: 1px solid ${({ theme }) => theme.colors.mainLine};
+    /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
     /* background-color: #fff; */
     margin: 0 auto 110px;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   `,
   topDiv: styled.div`
     display: flex;
@@ -76,17 +78,13 @@ const MainBoard = ({ text }) => {
         <s.board>
           <s.dataTitle>자유게시판</s.dataTitle>
           <s.data>
-            <s.Text>
-              등록한 게시글입니다. 등록되지않으면 표시되지 않습니다.
-            </s.Text>
+            <s.Text>등록한 게시글입니다. 등록되지않으면 표시되지 않습니다.</s.Text>
           </s.data>
         </s.board>
         <s.board>
           <s.dataTitle>자유게시판</s.dataTitle>
           <s.data>
-            <s.Text>
-              등록한 게시글입니다. 등록되지않으면 표시되지 않습니다.
-            </s.Text>
+            <s.Text>등록한 게시글입니다. 등록되지않으면 표시되지 않습니다.</s.Text>
           </s.data>
         </s.board>
       </s.dataDiv>

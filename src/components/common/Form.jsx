@@ -14,6 +14,7 @@ const s = {
     padding: 15px;
     font-size: 15px;
     background-color: #f0f0f0;
+    outline: none;
   `,
   lable: styled.label`
     height: 24px;

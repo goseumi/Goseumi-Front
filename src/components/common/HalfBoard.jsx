@@ -8,13 +8,17 @@ const s = {
     width: 174px;
     height: 196px;
     border-radius: 10px;
+    border: 1px solid #d7d7d7;
     /* border: 1px solid #a7968e; */
     background-color: #fff;
-    border: 1px solid ${({ theme }) => theme.colors.mainLine};
+    /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
     margin: auto;
     padding: 10px;
     display: flex;
     flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px; */
+    /* box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px; */
   `,
   topDiv: styled.div`
     display: flex;
@@ -47,12 +51,10 @@ const HalfBoard = ({ text }) => {
           <s.SubTitleFont>전체보기</s.SubTitleFont>
         </s.topDiv>
         <s.dataDiv>
-          wer Writewer wer ew e e rwerwer wer wer werrrrnr r r registerh
-          htttttththth thhh thth thth ththwer Writewer wer ew e e rwerwer wer
-          wer werrrrnr r r registerh htttttththth thhh thth thth ththwer
-          Writewer wer ew e e rwerwer wer wer werrrrnr r r registerh
-          htttttththth thhh thth thth ththwer Writewer wer ew e e rwerwer wer
-          wer werrrrnr r r registerh htttttththth thhh thth thth thth
+          wer Writewer wer ew e e rwerwer wer wer werrrrnr r r registerh htttttththth thhh thth thth ththwer Writewer
+          wer ew e e rwerwer wer wer werrrrnr r r registerh htttttththth thhh thth thth ththwer Writewer wer ew e e
+          rwerwer wer wer werrrrnr r r registerh htttttththth thhh thth thth ththwer Writewer wer ew e e rwerwer wer wer
+          werrrrnr r r registerh htttttththth thhh thth thth thth
         </s.dataDiv>
       </s.HBContainer>
     </>
