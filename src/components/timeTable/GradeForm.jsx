@@ -13,15 +13,17 @@ const s = {
     padding: 20px;
     overflow: scroll;
     background-color: #fff;
-    border: 1px solid ${({ theme }) => theme.colors.mainLine};
+    /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
     border-radius: 10px;
+    /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+    border: 1px solid #d7d7d7;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
   `,
   tableInfo: styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    /* border: 1px solid red; */
   `,
   title: styled.p`
     font-size: 15px;
@@ -31,7 +33,6 @@ const s = {
     display: flex;
     justify-content: space-around;
     margin-top: 20px;
-    /* border: 1px solid red; */
   `,
   curScore: styled.span`
     font-size: 15px;
