@@ -15,9 +15,6 @@ const s = {
     max-width: 428px;
     position: fixed;
     background-color: #ffffff;
-    /* background-color: ${({ theme }) => theme.colors.Gray}; */
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    border-bottom: 1px solid #d7d7d7;
   `,
   MainHeaderContainer: styled.div`
     height: 60px;
