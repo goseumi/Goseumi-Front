@@ -14,21 +14,19 @@ const ImgDiv = styled.div`
   height: 77px;
   border-radius: 50%;
   border: 1px solid #d7d7d7;
-  /* border: 1px solid ${({ theme }) => theme.colors.mainLine}; */
   cursor: pointer;
   background-image: url(${(props) => props.icon});
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-color: white;
-  /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 `;
 
 const Text = styled.div`
   margin-top: 15px;
   font-size: 14px;
-  weight: 400;
+  font-weight: bold;
   text-align: center;
 `;
 
