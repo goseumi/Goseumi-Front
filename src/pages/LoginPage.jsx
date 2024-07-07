@@ -3,51 +3,63 @@ import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { styled } from 'styled-components';
 import { isLoginAtom } from './../lib/recoil/isLoginAtom';
+import mainLogo from '../assets/img/mainLogo.png';
 
 const LoginContainer = styled.div`
-  position: relative;
+  width: 100%;
   display: flex;
+  flex-direction: column;
+`;
+
+const LogoArea = styled.div`
+  width: 100%;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
 `;
 
 const LogoImage = styled.img`
-  position: absolute;
-  top: 168px;
+  width: 100%;
+  margin: 0 auto;
 `;
 
 const LoginInput = styled.input`
   width: 368px;
   height: 54px;
+  font-size: 16px;
+  outline: none;
   background: #f0f0f0;
   border-radius: 8px;
-  position: absolute;
   padding: 15px;
+  margin: 10px auto 0;
 `;
 
 const LoginButton = styled.button`
   width: 368px;
   height: 54px;
   border-radius: 8px;
-  position: absolute;
   background: #a7968e;
   font-size: 20px;
   font-weight: 600;
   color: white;
+  margin: 10px auto;
 `;
 
 const LoginP = styled.p`
-  width: 260px;
+  width: 360px;
   height: 24px;
-  position: absolute;
-  font-size: 18px;
+  font-size: 15px;
   top: 724px;
   text-align: center;
+  margin: 10px auto 0;
+  font-weight: bold;
 `;
 
 const LoginLink = styled.span`
   color: #3f8cff;
-  font-size: 18px;
+  font-size: 15px;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -65,23 +77,15 @@ function LoginPage() {
   return (
     <>
       <LoginContainer>
-        <LogoImage src={process.env.PUBLIC_URL + 'mstile-150x150.png'} />
-        <LoginInput
-          type="email"
-          placeholder="이메일을 입력해주세요"
-          style={{ top: '472px' }}
-        />
-        <LoginInput
-          type="password"
-          placeholder="비밀번호를 입력해주세요"
-          style={{ top: '536px' }}
-        />
-        <LoginButton style={{ top: '610px' }} onClick={handleLogin}>
-          로그인하기
-        </LoginButton>
+        <LogoArea>
+          <LogoImage src={mainLogo} />
+        </LogoArea>
+        <LoginInput type="email" placeholder="이메일을 입력해주세요" />
+        <LoginInput type="password" placeholder="비밀번호를 입력해주세요" />
+        <LoginButton onClick={handleLogin}>로 그 인</LoginButton>
         <LoginP>
-          회원이 아니신가요?
-          <LoginLink onClick={movePage}>회원가입하기 {'>'}</LoginLink>
+          회원이 아니시면 가입 후 서비스를 이용해보세요!
+          <LoginLink onClick={movePage}> 회원가입</LoginLink>
         </LoginP>
       </LoginContainer>
     </>

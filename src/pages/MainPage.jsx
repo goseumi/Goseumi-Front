@@ -6,7 +6,7 @@ import MainHeader from '../components/common/MainHeader';
 import HalfBoard from '../components/common/HalfBoard';
 import MainBoard from '../components/common/MainBoard';
 import { useLocation } from 'react-router-dom';
-import icon0 from '../assets/img/mainLogo.png';
+import icon0 from '../assets/img/mainLogoOrigin.png';
 import icon1 from '../assets/img/neis.png';
 import icon2 from '../assets/img/jinhak.jpg';
 import icon3 from '../assets/img/ebs.png';
@@ -48,22 +48,10 @@ const MainPage = () => {
       <s.MainContent>
         <s.SchoolName>공주고등학교</s.SchoolName>
         <s.SiteContainer>
-          <SiteTab
-            icon={icon0}
-            href="http://www.kongjugo.cnehs.kr/main.do"
-            text="홈페이지"
-          />
-          <SiteTab
-            icon={icon1}
-            href="https://www.neis.go.kr/nxuiPortal/index.html"
-            text="나이스"
-          />
+          <SiteTab icon={icon0} href="http://www.kongjugo.cnehs.kr/main.do" text="홈페이지" />
+          <SiteTab icon={icon1} href="https://www.neis.go.kr/nxuiPortal/index.html" text="나이스" />
           <SiteTab icon={icon2} href="https://www.jinhak.com/" text="진학사" />
-          <SiteTab
-            icon={icon3}
-            href="https://www.ebsi.co.kr/ebs/pot/poti/main.ebs"
-            text="EBS"
-          />
+          <SiteTab icon={icon3} href="https://www.ebsi.co.kr/ebs/pot/poti/main.ebs" text="EBS" />
         </s.SiteContainer>
         <s.BoardContainer>
           <HalfBoard text="오늘의 급식" />

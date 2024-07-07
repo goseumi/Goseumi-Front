@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import FormButton from './FormButton';
+import { theme } from './../../style/theme';
 
 const s = {
-  // form
   form: styled.div`
     width: 100%;
     padding: 60px 20px 0;
@@ -11,18 +11,21 @@ const s = {
   input: styled.input`
     width: 100%;
     height: 50px;
-    padding-left: 15px;
+    padding: 15px;
+    font-size: 15px;
     background-color: #f0f0f0;
+    outline: none;
   `,
   lable: styled.label`
     height: 24px;
-    font-weight: 700;
+    font-weight: bold;
     display: block;
-    margin: 30px 0 5px;
+    font-size: 20px;
+    margin: 20px 0 5px;
   `,
   warning: styled.span`
-    color: red;
-    font-size: 13px;
+    color: ${({ theme }) => theme.colors.negative};
+    font-size: 10px;
   `,
 };
 
@@ -55,8 +58,7 @@ const Form = ({ type, onSubmit }) => {
   const btnOnOff = () => {
     const nicknamePattern = /^[a-zA-Z0-9가-힣]{2,12}$/;
     const phonePattern = /^\d{8,11}$/;
-    const passwordPattern =
-      /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()\-_=+\\|[\]{};:'",.<>?/]).{6,16}$/;
+    const passwordPattern = /^(?=.*[a-zA-Z])(?=.*\d)(?=.*[~!@#$%^&*()\-_=+\\|[\]{};:'",.<>?/]).{6,16}$/;
     const emailPattern = /^[^ㄱ-ㅎㅏ-ㅣ가-힣]+@[a-zA-Z0-9.]+\.[A-Za-z]+$/;
 
     if (type === 'regist') {

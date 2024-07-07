@@ -10,8 +10,10 @@ const s = {
     width: 90%;
     height: 180px;
     margin: 10px auto;
-    border: 1px solid #d3d3d3;
+    /* border: 1px solid #d3d3d3; */
     border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    border: 1px solid #d7d7d7;
   `,
 };
 

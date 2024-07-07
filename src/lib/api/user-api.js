@@ -1,11 +1,11 @@
-import { localAxios, registAxios } from '../../util/axios-setting';
+import { localAxios, userAxios } from '../../util/axios-setting';
 
-const local = localAxios();
-const join = registAxios();
+const loginCall = localAxios();
+const registCall = userAxios();
 
 export const login = async (param, success, fail) => {
-  await local.post(`/member/signup`, param).then(success).catch(fail);
+  await loginCall.post(`/login`, param).then(success).catch(fail);
 };
 export const regist = async (param, success, fail) => {
-  await join.post(`/login`, param).then(success).catch(fail);
+  await registCall.post(`/member/signup`, param).then(success).catch(fail);
 };
