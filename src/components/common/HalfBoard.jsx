@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Write from './../Board/Write';
 import { theme } from './../../style/theme';
 import { Food } from '../../util/SchoolFood';
+import useFoodReplace from '../../hook/useFoodReplace';
+import { useNavigate } from 'react-router-dom';
 
 const s = {
   HBContainer: styled.div`
@@ -58,6 +60,7 @@ const s = {
 };
 
 const HalfBoard = ({ type, title }) => {
+  let data = useFoodReplace(Food[1].DDISH_NM);
   // 커스텀훅으로 빼기
   let text = Food[1].DDISH_NM; //'고르곤졸라피자 (1.2.5.6.10.12.13.15.16)<br/>도토리묵채국* (5.6.7.9.13.18)<br/>돈육주꾸미덮밥 (5.6.10.13)<br/>배추김치 (9)<br/>애플키위주스 (13)<br/>오렌지야채샐러드 (5.6.11)'
   // <br/> 태그를 개행 문자로 변환하여 줄바꿈이 이루어지도록 함
@@ -68,12 +71,17 @@ const HalfBoard = ({ type, title }) => {
 
   // * 문자 제거
   text = text.replace(/[*@]/g, '');
+
+  const navigate = useNavigate();
+  const handleMovePage = () => {
+    type === 'food' ? navigate('/food') : navigate('/schedule');
+  };
   return (
     <>
       <s.HBContainer>
         <s.topDiv>
           <s.SubTitleFont>{title}</s.SubTitleFont>
-          <s.SubTitleFont>전체보기</s.SubTitleFont>
+          <s.SubTitleFont onClick={handleMovePage}>전체보기</s.SubTitleFont>
         </s.topDiv>
         {type === 'food' ? (
           <s.dataArea>
@@ -87,7 +95,7 @@ const HalfBoard = ({ type, title }) => {
             </s.foodData>
             <s.foodData>
               <s.foodTitle>저녁</s.foodTitle>
-              <s.foodText>{text.trim()}</s.foodText>
+              <s.foodText>{data}</s.foodText>
             </s.foodData>
           </s.dataArea>
         ) : (
