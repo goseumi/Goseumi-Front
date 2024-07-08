@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import FormHeader from '../../components/common/FormHeader';
 import { theme } from './../../style/theme';
 import { Food } from '../../util/SchoolFood';
+import useFoodReplace from '../../hook/useFoodReplace';
 
 const s = {
   Frame: styled.div`
@@ -86,15 +87,15 @@ const MainFoodPage = () => {
           </s.dayBtnArea>
           <s.foodArea>
             <s.foodTitle>아침</s.foodTitle>
-            <s.foodText>{text.trim()}</s.foodText>
+            <s.foodText>{text}</s.foodText>
           </s.foodArea>
           <s.foodArea>
             <s.foodTitle>점심</s.foodTitle>
-            <s.foodText>{text.trim()}</s.foodText>
+            <s.foodText>{text}</s.foodText>
           </s.foodArea>
           <s.foodArea>
             <s.foodTitle>저녁</s.foodTitle>
-            <s.foodText>{text.trim()}</s.foodText>
+            <s.foodText>{text}</s.foodText>
           </s.foodArea>
         </s.foodDataArea>
       </s.Frame>
