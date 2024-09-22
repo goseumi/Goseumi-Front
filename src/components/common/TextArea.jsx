@@ -17,7 +17,7 @@ const s = {
     resize: none;
     padding: 10px;
     &::placeholder {
-      color: ${({ placeColor, theme }) => (placeColor ? theme[placeColor] : theme['textColor2'])};
+      color: ${({ placeColor, theme }) => (placeColor ? theme[placeColor] : theme['textColor1'])};
     }
   `,
 };

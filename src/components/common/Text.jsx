@@ -8,7 +8,7 @@ const s = {
     border-radius: 10px;
     font-weight: ${(props) => props.bold || '500'};
     cursor: ${(props) => props.cursor || 'default'};
-    color: ${({ color, theme }) => (color ? theme[color] : theme['textBasic2'])};
+    color: ${({ color, theme }) => (color ? theme[color] : theme['textBasic1'])};
     display: ${(props) => props.display};
     margin: ${(props) => props.margin};
     text-align: ${(props) => props.textalian};

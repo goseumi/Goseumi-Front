@@ -13,8 +13,8 @@ const btn = styled.button`
 `;
 const s = {
   Mainbutton: styled(btn)`
-    background-color: ${(props) => props.theme.mainColor};
-    color: ${(props) => props.theme.btnText};
+    background-color: ${(props) => props.theme.colors.main};
+    color: ${(props) => props.theme.colors.textBasic2};
   `,
   Subbutton: styled(btn)`
     background-color: ${(props) => props.theme.btnOff};
