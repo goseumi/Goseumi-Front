@@ -7,5 +7,7 @@ export const theme = {
     sub: '#FFC4C4',
     negative: '#FF6E65',
     positive: '#3F8CFF',
+    textBasic1: '#000',
+    textBasic2: '#fff',
   },
 };
