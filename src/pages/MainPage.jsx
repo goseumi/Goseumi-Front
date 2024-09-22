@@ -54,8 +54,8 @@ const MainPage = () => {
           <SiteTab icon={icon3} href="https://www.ebsi.co.kr/ebs/pot/poti/main.ebs" text="EBS" />
         </s.SiteContainer>
         <s.BoardContainer>
-          <HalfBoard text="오늘의 급식" />
-          <HalfBoard text="학사 일정" />
+          <HalfBoard type="food" title="오늘의 급식" />
+          <HalfBoard type="schedule" title="학사 일정" />
         </s.BoardContainer>
         <MainBoard text="커뮤니티 목록" />
       </s.MainContent>

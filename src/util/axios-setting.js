@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const localAxios = () => {
   const instance = axios.create({
-    baseURL: '/proxy',
+    baseURL: process.env.REACT_APP_BASE_URL,
     withCredentials: true,
   });
 
@@ -14,7 +14,7 @@ export const localAxios = () => {
 
 export const userAxios = () => {
   const instance = axios.create({
-    baseURL: '/user',
+    baseURL: `${process.env.REACT_APP_BASE_URL}/api`,
     withCredentials: true,
   });
 
@@ -26,7 +26,7 @@ export const userAxios = () => {
 
 export const adminAxios = () => {
   const instance = axios.create({
-    baseURL: '/admin',
+    baseURL: `${process.env.REACT_APP_BASE_URL}/api/admin`,
     withCredentials: true,
   });
 

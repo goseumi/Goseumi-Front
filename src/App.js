@@ -79,6 +79,8 @@ import SchoolAuthPage from './pages/MyPage/SchoolAuthPage';
 import BoardCategoryPage from './pages/admin/BoardCategoryPage';
 import SchoolManagePage from './pages/admin/SchoolManagePage';
 import MyPageList from './components/myPage/MyPageList';
+import MainFoodPage from './pages/mainInfo/MainFoodPage';
+import MainSchedulePage from './pages/mainInfo/MainSchedulePage';
 
 const S = {
   Frame: styled.div`
@@ -151,6 +153,8 @@ function App() {
                   </Route>
                 </Route>
               </Route>
+              <Route path="/food" element={<MainFoodPage />} />
+              <Route path="/schedule" element={<MainSchedulePage />} />
               <Route path="/*" element={<ErrorPage />} />
             </Routes>
           </BrowserRouter>
