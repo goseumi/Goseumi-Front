@@ -22,7 +22,7 @@ const Notice = styled.div`
 
 const ShowList = styled.div`
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   height: 100%;
   overflow: auto;
 `;
@@ -47,7 +47,7 @@ function Icons({ icon: Icon }) {
   return <Icon width={20} height={20} fill="none" />;
 }
 
-function BoardList() {
+function BoardListPage() {
   return (
     <>
       <FormHeader text="자유게시판" />
@@ -55,16 +55,16 @@ function BoardList() {
         <Notice>공지사항입니다...</Notice>
         <ShowList>
           <Link to="/boardDetail">
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
-            <List />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
+            <List title={'제목'} content={'내용'} date={'23:29'} like={'7'} reply={'6'} />
           </Link>
           <Link to="/boardInput">
             <WriteBtn>
@@ -77,4 +77,4 @@ function BoardList() {
   );
 }
 
-export default BoardList;
+export default BoardListPage;
