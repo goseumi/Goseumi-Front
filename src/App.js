@@ -30,6 +30,7 @@ import SchoolManagePage from './pages/admin/SchoolManagePage';
 import MyPageList from './components/myPage/MyPageList';
 import MainFoodPage from './pages/mainInfo/MainFoodPage';
 import MainSchedulePage from './pages/mainInfo/MainSchedulePage';
+import StorePage from './pages/storePage/StorePage';
 
 const S = {
   Frame: styled.div`
@@ -93,6 +94,7 @@ function App() {
                 <Route path="/boardInput" element={<BoardWritePage />} />
                 <Route path="/boardPage" element={<BoardListPage />} />
                 <Route path="/boardDetail" element={<BoardDetailPage />} />
+                <Route path="/store" element={<StorePage />} />
                 <Route element={<AdminRoute />}>
                   <Route path="/admin" element={<MyPage />}>
                     <Route path="/admin" element={<MyPageList />} />
