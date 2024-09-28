@@ -21,8 +21,6 @@ const Notice = styled.div`
 `;
 
 const ShowList = styled.div`
-  display: flex;
-  flex-direction: column-reverse;
   height: 100%;
   overflow: auto;
 `;
@@ -71,6 +69,8 @@ function BoardList() {
               <Icons icon={write} />
             </WriteBtn>
           </Link>
+          <div style={{ margin: '92px' }}></div>
+
         </ShowList>
       </ListContainer>
     </>
