@@ -31,7 +31,6 @@ const s = {
     color: ${(props) => props.theme.colors.main};
     font-size: 12px;
     font-weight: 600;
-    bac
   `,
   Unavailable: styled.div`
     color: ${(props) => props.theme.colors.textBasic1};
@@ -91,13 +90,13 @@ const s = {
 
 const ItemList = ({ itemId, itemImage, itemName, itemPrice, isOnSale, itemLike, isLike, onClick }) => {
   return (
-    <s.Container>
+    <s.Container onClick={onClick}>
       {/* <Image width="70px" height="70px" src={itemImage} type="rect" /> */}
       <s.ItemImage>
         <Image width="70px" height="70px" src={test} type="rect" />
       </s.ItemImage>
       <s.ItemInfoArea>
-        <s.ItemTopArea onClick={onClick}>
+        <s.ItemTopArea>
           <s.ItemName>{itemName}</s.ItemName>
           {isOnSale === true ? <s.Available>판매중</s.Available> : <s.Unavailable>판매완료 </s.Unavailable>}
         </s.ItemTopArea>
@@ -110,7 +109,7 @@ const ItemList = ({ itemId, itemImage, itemName, itemPrice, isOnSale, itemLike, 
               <IconSvg width="23" height="23" Ico={likeOff} />
             )} */}
             {/* <IconSvg width="23" height="23" Ico={test} /> */}
-            <s.ItemLike>{1}</s.ItemLike>
+            <s.ItemLike>{itemLike}</s.ItemLike>
           </s.ItemLikeArea>
         </s.ItemBottomArea>
       </s.ItemInfoArea>

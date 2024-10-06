@@ -9,7 +9,6 @@ const s = {
     position: fixed;
     width: 100%;
     max-width: 428px;
-    border: 1px solid red;
     background-color: #fff;
   `,
   Header: styled.header`
@@ -29,6 +28,7 @@ const s = {
     line-height: 24px;
     text-align: center;
     font-weight: bold;
+    cursor: default;
   `,
 
   pre: styled.div`
@@ -51,7 +51,6 @@ const s = {
   `,
   gradeli: styled.div`
     width: 100px;
-    border: 1px solid red;
     margin-right: 10px;
     font-size: 15px;
     font-weight: bold;

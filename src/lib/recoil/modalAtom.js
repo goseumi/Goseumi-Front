@@ -23,3 +23,8 @@ export const CategorySetAtom = atom({
   key: 'CategorySetAtom',
   default: false,
 });
+
+export const ItemSetAtom = atom({
+  key: 'ItemSetAtom',
+  default: false,
+});
